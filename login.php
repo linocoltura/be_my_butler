@@ -4,12 +4,6 @@
 //        include_once("classes/" . $class . ".class.php");
 //    });
 
-    session_start();
-    if (!isset($_SESSION['facebook_access_token'])){
-        header('location: logout.php');
-    }
-
-
 // Include FB config file && User class
 require_once 'fbConfig.php';
 require_once 'classes/User.class.php';
@@ -96,16 +90,16 @@ if(isset($accessToken)){
     $loginURL = $helper->getLoginUrl($redirectURL, $fbPermissions);
 
     // Render facebook login button
-    $output = '<a href="'.htmlspecialchars($loginURL).'"><img src="img/fblogin-btn.png"></a>';
+    //$output = '<a href="'.htmlspecialchars($loginURL).'"><img src="img/fblogin-btn.png"></a>';
 }
-
 ?>
+
 
 <!doctype HTML>
 <html>
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>LOGIN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS -->
@@ -121,6 +115,7 @@ if(isset($accessToken)){
 
 </head>
 <body>
+
 <header>
     <nav class="nav navbar-default">
         <div class="container">
@@ -142,9 +137,9 @@ if(isset($accessToken)){
 </header>
 <div class="container">
 
-    <h1><?php echo "Hello ". $userData['first_name'] ?></h1>
-    <img src="<?php echo $userData['picture'] ?>" alt="">
-    
+    <!-- Display login button / Facebook profile information -->
+    <div><a href="<?php echo htmlspecialchars($loginURL) ?>"><img src="img/fblogin-btn.png"></a></div>
+
 </div>
 
 
