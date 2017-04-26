@@ -2,15 +2,10 @@
 
 class User
 {
-    private $email;
-    private $password;
-    private $firstname;
-    private $imageUrl = "http://earthharmonyfestival.org/view/modules/imgoing/img/editor/empty-profile.jpg";
 
-    private $section;
-    private $seat;
     private $balance;
     private $loyalty;
+    private $id;
 
     private $dbHost     = "localhost";
     private $dbUsername = "root";
@@ -52,6 +47,92 @@ class User
 
         // Return user data
         return $userData;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBalance()
+    {
+        return $this->balance;
+    }
+
+    /**
+     * @param mixed $balance
+     */
+    public function setBalance($balance)
+    {
+        $conn = db::getInstance();
+
+        $statement = $conn->prepare("INSERT INTO users (balance) VALUES (:balance)");
+        $statement ->bindValue(":balance", $balance);
+        if ($statement ->execute()){
+            $this->balance = $balance;
+        }
+        else throw new Exception("Couldn't set balance");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLoyalty()
+    {
+        return $this->loyalty;
+    }
+
+    /**
+     * @param mixed $loyalty
+     */
+    public function setLoyalty($loyalty)
+    {
+        $conn = db::getInstance();
+
+        $statement = $conn->prepare("INSERT INTO users (loyalty) VALUES (:loyalty)");
+        $statement ->bindValue(":loyalty", $loyalty);
+        if ($statement ->execute()){
+            $this-$loyalty = $loyalty;
+        }
+        else throw new Exception("Couldn't set loyalty");
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getService(){
+
+        // returns active service this user
+
+        $conn = db::getInstance();
+
+        $statement = $conn->prepare("SELECT * FROM services WHERE completed = FALSE AND userID = :userID");
+        $statement ->bindValue(":userID", $this->getId());
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getServices(){
+
+        // returns all active services
+
+        $conn = db::getInstance();
+
+        $statement = $conn->prepare("SELECT * FROM services WHERE completed = FALSE");
+        $statement ->bindValue(":userID", $this->getUserID());
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
 }
