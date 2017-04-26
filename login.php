@@ -116,21 +116,44 @@ if(isset($accessToken)){
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 </head>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.9&appId=142188329650523";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <body>
 
 <header>
     <nav class="nav navbar-default">
         <div class="container">
-            
+
         </div>
     </nav>
 
 </header>
-<div class="container">
 
-    <!-- Display login button / Facebook profile information -->
-    <div><a href="<?php echo htmlspecialchars($loginURL) ?>"><img src="img/fblogin-btn.png"></a></div>
+<div class="container-fluid">
+
+    <div class="container bg-overlay">
+    <a href="#">
+  <img src="img/SplashLogo.svg" alt="Splash_Logo" id="SplashLogo" class="img-responsive">
+  <img src="img/SplashLogoKV.svg" alt="Splash_KV_Logo" id="SplashKV" class="img-responsive">
+  </a>
+    </div>
 </div>
+
+
+      <div id="Login" class="container">
+      <!-- Display login button / Facebook profile information -->
+
+<a id="facebooklink" href="<?php echo htmlspecialchars($loginURL) ?>">
+<div id="facebookbutton" class="fb-login-button" data-width="300" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true">
+</div></a>
+    </div>
+
 
 
 </body>
