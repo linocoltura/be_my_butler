@@ -25,11 +25,15 @@
 }
 #SplashLogo{
 position: absolute;
+top: 20%;
+left: 12%;
 display: block;
 width: 75%;
 }
 #SplashKV{
 position: absolute;
+top: 70%;
+left: 40%;
 display: block;
 width: 15%;
 }
