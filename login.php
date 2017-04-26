@@ -9,6 +9,7 @@ require_once 'fbConfig.php';
 require_once 'classes/User.class.php';
 
 if(isset($accessToken)){
+
     if(isset($_SESSION['facebook_access_token'])){
         $fb->setDefaultAccessToken($_SESSION['facebook_access_token']);
     }else{
@@ -84,6 +85,7 @@ if(isset($accessToken)){
     }else{
         $output = '<h3 style="color:red">Some problem occurred, please try again.</h3>';
     }
+    $loginURL = $helper->getLoginUrl($redirectURL, $fbPermissions);
 
 }else{
     // Get login url
@@ -128,7 +130,6 @@ if(isset($accessToken)){
 
     <!-- Display login button / Facebook profile information -->
     <div><a href="<?php echo htmlspecialchars($loginURL) ?>"><img src="img/fblogin-btn.png"></a></div>
-
 </div>
 
 
