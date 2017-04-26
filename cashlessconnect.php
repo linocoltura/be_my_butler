@@ -1,10 +1,6 @@
 <?php
 
-    spl_autoload_register(function ($class) {
-        include_once("classes/" . $class . ".class.php");
-    });
-
-    //laat voorlopig gewoon balans instellen op dit scherm
+include_once("includes/facebooksession.php");
 
 ?>
 
