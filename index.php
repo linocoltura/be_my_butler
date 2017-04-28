@@ -10,6 +10,7 @@ include_once("includes/facebooksession.php");
     <meta charset="utf-8">
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/animate.css">
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/reset.css">
@@ -27,16 +28,20 @@ include_once("includes/facebooksession.php");
 <header>
     <nav class="nav navbar-default">
         <div class="container">
-            
+
         </div>
     </nav>
 
 </header>
-<div class="container">
+<div class="container-fluid">
+<div class="container bg-overlay">
 
-    <h1><?php echo "Hello ". $_SESSION['userData']['first_name'] ?></h1>
-    <img src="<?php echo $_SESSION['userData']['picture'] ?>" alt="">
+    <img src="<?php echo $_SESSION['userData']['picture'] ?>" alt="fbAvatar" class="animated bounceInLeft">
+    <h1 class="animated bounceInDown"><?php echo "Hello ". $_SESSION['userData']['first_name'] ?></h1>
+    <h3>Scan uw ticket om uw registratie te voltooien</h3>
+    <!-- <input type="file" accept="image/*" capture="camera"> -->
 
+</div>
 </div>
 
 

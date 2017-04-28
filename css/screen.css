@@ -28,7 +28,7 @@
   height:40px;
   width: 200px;
   top: 45%;
-  left: 6%;
+  left: 15%;
 }
 
 .container-fluid{
@@ -80,6 +80,20 @@ opacity: 0;
 display: inline-block;
 }
 
+h1{
+text-align: center;
+animation-delay: 0.3s;
+}
+
+h3{
+  text-align: center;
+  font-size: 1.2em;
+}
+
+img{
+  position: absolute;
+  top: 2%;
+};
 /* Transitions */
 
 @-webkit-keyframes fadeOut {
