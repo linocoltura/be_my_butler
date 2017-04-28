@@ -15,32 +15,123 @@
     background-position: center center;
     top: 0;
     left: 0;
-
+}
+.container{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 .container-fluid{
     position: relative;
     height:667px;
     width: 375px;
-
+    top: 0;
 }
+
 #SplashLogo{
 position: absolute;
 top: 20%;
 left: 12%;
 display: block;
 width: 75%;
+-webkit-animation: fadeOut 8s ; /* Safari 4+ */
+  -moz-animation:    fadeOut 8s ; /* Fx 5+ */
+  -o-animation:      fadeOut 8s ; /* Opera 12+ */
+  animation:         fadeOut 8s ; /* IE 10+, Fx 29+ */
+  animation-fill-mode: forwards;
 }
 #SplashKV{
 position: absolute;
 top: 70%;
-left: 40%;
+left: 45%;
 display: block;
 width: 15%;
+-webkit-animation: fadeOut 8s ; /* Safari 4+ */
+  -moz-animation:    fadeOut 8s ; /* Fx 5+ */
+  -o-animation:      fadeOut 8s ; /* Opera 12+ */
+  animation:         fadeOut 8s ; /* IE 10+, Fx 29+ */
+  animation-fill-mode: forwards;
 }
 #facebookbutton{
+  position: absolute;
+  top: 50%;
+  left:20%;
   display: inline-block;
   pointer-events: none;
+  margin: 0 auto;
+  -webkit-animation: fadeIn 10s ; /* Safari 4+ */
+    -moz-animation:    fadeIn 10s ; /* Fx 5+ */
+    -o-animation:      fadeIn 10s ; /* Opera 12+ */
+    animation:         fadeIn 10s ; /* IE 10+, Fx 29+ */
+    animation-fill-mode: forwards;
+    animation-delay: 8s;
+opacity: 0;
+
 }
 #facebooklink{
 display: inline-block;
+}
+
+/* Transitions */
+
+@-webkit-keyframes fadeOut {
+  0%   { opacity: 0; }
+  50% {
+  opacity: 1; }
+  100%{
+  opacity: 0;
+  }
+}
+@-moz-keyframes fadeOut {
+  0%   { opacity: 0; }
+  50% {
+  opacity: 1; }
+  100%{
+  opacity: 0;
+  }
+}
+@-o-keyframes fadeOut {
+  0%   { opacity: 0; }
+  50% {
+  opacity: 1; }
+  100%{
+  opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  0%   { opacity: 0; }
+  50% {
+    opacity: 1;}
+  100%{
+  opacity: 0;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0%   { opacity: 0; }
+
+  100%{
+  opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0%   { opacity: 0; }
+
+  100%{
+  opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0%   { opacity: 0; }
+  100%{
+  opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0%   { opacity: 0; }
+
+  100%{
+  opacity: 1;
+  }
 }

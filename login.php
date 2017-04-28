@@ -137,25 +137,19 @@ if(isset($accessToken)){
 
 <div class="container-fluid">
 
-    <div class="container bg-overlay">
-    <a href="#">
+    <div class="container bg-overlay" id="animatedfadeOut">
+
   <img src="img/SplashLogo.svg" alt="Splash_Logo" id="SplashLogo" class="img-responsive">
   <img src="img/SplashLogoKV.svg" alt="Splash_KV_Logo" id="SplashKV" class="img-responsive">
+  <a id="facebooklink" href="<?php echo htmlspecialchars($loginURL) ?>">
+  <div id="facebookbutton" class="fb-login-button" data-width="300" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true">
+  </div>
   </a>
     </div>
 </div>
 
 
-<div id="Login" class="container">
-
-<a id="facebooklink" href="<?php echo htmlspecialchars($loginURL) ?>">
-<div id="facebookbutton" class="fb-login-button" data-width="300" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true">
-</div>
-</a>
-
-</div>
-
-
 
 </body>
+
 </html>
