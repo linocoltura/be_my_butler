@@ -39,7 +39,9 @@ include_once("includes/facebooksession.php");
     <img src="<?php echo $_SESSION['userData']['picture'] ?>" alt="fbAvatar" class="animated bounceInLeft">
     <h1 class="animated bounceInDown"><?php echo "Hello ". $_SESSION['userData']['first_name'] ?></h1>
     <h3>Scan uw ticket om uw registratie te voltooien</h3>
+
     <!-- <input type="file" accept="image/*" capture="camera"> -->
+    <button id="cameraButton" type="button" class="btn btn-default btn-circle btn-xl animated infinite tada"><i class="glyphicon glyphicon-camera"></i></button>
 
 </div>
 </div>
