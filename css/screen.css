@@ -23,6 +23,14 @@
   top: 0;
   left: 0;
 }
+#wrapper{
+  position: relative;
+  height:40px;
+  width: 200px;
+  top: 45%;
+  left: 6%;
+}
+
 .container-fluid{
     position: relative;
     height:667px;
@@ -54,18 +62,16 @@ width: 15%;
   animation:         fadeOut 8s ; /* IE 10+, Fx 29+ */
   animation-fill-mode: forwards;
 }
-#facebookbutton{
+div#facebookbutton{
   position: absolute;
-  top: 50%;
-  left:20%;
   display: inline-block;
   pointer-events: none;
   margin: 0 auto;
   -webkit-animation: fadeIn 10s ; /* Safari 4+ */
-    -moz-animation:    fadeIn 10s ; /* Fx 5+ */
-    -o-animation:      fadeIn 10s ; /* Opera 12+ */
-    animation:         fadeIn 10s ; /* IE 10+, Fx 29+ */
-    animation-fill-mode: forwards;
+  -moz-animation:    fadeIn 10s ; /* Fx 5+ */
+  -o-animation:      fadeIn 10s ; /* Opera 12+ */
+      animation:         fadeIn 10s ; /* IE 10+, Fx 29+ */
+   animation-fill-mode: forwards;
     animation-delay: 8s;
 opacity: 0;
 
@@ -113,6 +119,7 @@ display: inline-block;
 
   100%{
   opacity: 1;
+  position: relative;
   }
 }
 @-moz-keyframes fadeIn {
@@ -120,18 +127,22 @@ display: inline-block;
 
   100%{
   opacity: 1;
+  position: relative;
   }
 }
 @-o-keyframes fadeIn {
   0%   { opacity: 0; }
   100%{
   opacity: 1;
+  position: relative;
   }
 }
 @keyframes fadeIn {
-  0%   { opacity: 0; }
+  0%   { opacity: 0;
+   }
 
   100%{
   opacity: 1;
+  position:relative;
   }
 }
