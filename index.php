@@ -10,13 +10,14 @@ include_once("includes/facebooksession.php");
     <meta charset="utf-8">
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/animate.css">
+
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/screen.css">
+    <link rel="stylesheet" href="css/animate.css" />
 
     <!-- JavaScript -->
     <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
@@ -41,7 +42,7 @@ include_once("includes/facebooksession.php");
     <h3>Scan uw ticket om uw registratie te voltooien</h3>
 
     <!-- <input type="file" accept="image/*" capture="camera"> -->
-    <button id="cameraButton" type="button" class="btn btn-default btn-circle btn-xl animated infinite tada"><i class="glyphicon glyphicon-camera"></i></button>
+    <a href="cashlessconnect.php"><button id="cameraButton" type="button" class="btn btn-default btn-circle btn-xl animated infinite tada"><i class="glyphicon glyphicon-camera"></i></button></a>
 
 </div>
 </div>

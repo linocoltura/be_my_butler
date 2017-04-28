@@ -101,6 +101,21 @@ img{
   left: 40%;
   animation-delay: 2s;
 }
+#syncButton{
+  position: absolute;
+  top: 60%;
+  left: 40%;
+  animation-delay:5s;
+}
+i{
+  color:#e74c3c;
+}
+.form-group{
+margin-top: 50%;
+}
+label{
+  animation-delay: 1s;
+}
 .btn-circle.btn-xl {
   width: 70px;
   height: 70px;
