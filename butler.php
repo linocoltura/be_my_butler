@@ -27,6 +27,7 @@ if ($user->isCustomer()){
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/screen.css">
+    <link rel="stylesheet" href="css/animate.css" />
 
     <!-- JavaScript -->
     <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
@@ -38,12 +39,45 @@ if ($user->isCustomer()){
 <header>
     <nav class="nav navbar-default">
         <div class="container">
-          
+
         </div>
     </nav>
 
 </header>
-<div class="container">
+<div class="container-fluid">
+
+  <div class="container bg-overlay">
+    <div class="header">
+      <h1>Header</h1>
+    </div>
+
+      <div class="tutorial-video">
+          <video src="" autoplay poster="">
+          </video>
+        </div>
+    <div class="butlerOverview">
+      <form class="form-group" action="" method="post">
+          <label for="amount">Ik kan nog ...</label>
+          <select class="form-control" id="amount" name="amount">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+          </select>
+          <label for="amount">consumptie(s) meedragen</label>
+          <button type="submit" class="btn btn-secondary btn-lg">Bevestig</button>
+      </form>
+    </div>
+          <div class="loyalOverview">
+            <span class="glyphicon glyphicon-bell" aria-hidden="true"></span><h5>Aantal Bedieningen</h5>
+            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span><h5>Aantal Favorites</h5>
+            <span class="glyphicon glyphicon-gift" aria-hidden="true"></span></span><h5>Loyaliteits Punten</h5>
+          </div>
+
+
+  </div>
 
 
 

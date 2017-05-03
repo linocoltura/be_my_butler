@@ -39,6 +39,8 @@
     position: relative;
     height:667px;
     width: 375px;
+    overflow: hidden;
+    margin-top: 40px;
     top: 0;
 }
 
@@ -157,6 +159,33 @@ h3.titleRight{
   font-size: 1.7em;
   text-decoration: none;
 }
+
+div.tutorial-video{
+  display:none;
+}
+div.header{
+  height: 15%;
+  width: auto;
+  background-color: white;
+}
+
+div.butlerOverview{
+  background-color: white;
+}
+div.loyalOverview{
+  height: 20%;
+  width: auto;
+  background-color: white;
+}
+span{
+  margin-top: 10px;
+  margin-left: 25px;
+  float: left;
+}
+h5{
+
+}
+
 /* Transitions */
 
 @-webkit-keyframes fadeOut {
