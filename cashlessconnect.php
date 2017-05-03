@@ -1,6 +1,16 @@
 <?php
 
 include_once("includes/facebooksession.php");
+include_once("classes/User.class.php");
+include_once("classes/Db.class.php");
+
+if (!empty($_POST) && isset($_POST['amount'])){
+    $user = new User();
+    $user->setId($_SESSION['userData']['id']);
+    if ($user->setBalance($_POST['amount'])){
+        header("location:mode.php");
+    }
+}
 
 ?>
 
@@ -38,16 +48,16 @@ include_once("includes/facebooksession.php");
     <div class="container bg-overlay">
         <h3 class="animated bounceInDown">Stel een bedrag in:</h3>
 
-        <div class="form-group">
-  <label for="sel1" class="animated bounceInLeft">KVM Betaalkaart bedraagt:</label>
-  <select class="form-control" id="sel1">
-    <option>€ 10.00</option>
-    <option>€ 20.00</option>
-    <option>€ 40.00</option>
-    <option>€ 50.00</option>
-  </select>
-</div>
-        <a href="mode.php"><button id="syncButton" type="button" class="btn btn-default btn-circle btn-xl animated infinite tada"><i class="glyphicon glyphicon-refresh"></i></button></a>
+        <form class="form-group" action="" method="post">
+            <label for="amount" class="animated bounceInLeft">KVM Betaalkaart bedraagt:</label>
+            <select class="form-control" id="amount" name="amount">
+                <option value="10">€ 10.00</option>
+                <option value="20">€ 20.00</option>
+                <option value="40">€ 40.00</option>
+                <option value="50">€ 50.00</option>
+            </select>
+            <button id="syncButton" type="submit" class="btn btn-default btn-circle btn-xl animated infinite tada"><i class="glyphicon glyphicon-refresh"></i></button>
+        </form>
     </div>
 
 
