@@ -134,7 +134,7 @@ class User
         $conn = Db::getInstance();
 
         $statement = $conn->prepare("SELECT * FROM services WHERE completed = FALSE");
-        $statement ->bindValue(":userID", $this->getUserID());
+        $statement ->bindValue(":userID", $this->getID());
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -143,7 +143,7 @@ class User
         $conn = Db::getInstance();
 
         $statement = $conn->prepare("SELECT * FROM services WHERE userID = :userID AND completed = FALSE");
-        $statement ->bindValue(":userID", $this->getUserID());
+        $statement ->bindValue(":userID", $this->getID());
         $statement->execute();
         if ($statement->rowCount()>0){
             return true;
@@ -154,7 +154,7 @@ class User
         $conn = Db::getInstance();
 
         $statement = $conn->prepare("SELECT * FROM userIsCustomer WHERE userID = :userID AND completed = FALSE");
-        $statement ->bindValue(":userID", $this->getUserID());
+        $statement ->bindValue(":userID", $this->getID());
         $statement->execute();
         if ($statement->rowCount()>0){
             return true;
