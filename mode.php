@@ -34,13 +34,16 @@ include_once("includes/facebooksession.php");
     </nav>
 
 </header>
-<div class="container">
+<div class="container-fluid">
 
   <div class="container bg-overlay">
 <h3 class="animated bounceInDown">Ga verder als...</h3>
 
-    <a href="butler.php"><h3>Butler</h3></a>
-    <a href="customer.php"><h3>Klant</h3></a>
+    <a href="butler.php"><h3>Butler</h3>
+    <img src="img/Mode_Butler.svg" alt="Butler Mode" class="imgMode"></a>
+
+    <a href="customer.php"><h3>Klant</h3>
+    <img src="img/Mode_Supporter.svg" alt="Supporter Mode" class="imgMode"></a>
 
   </div>
 

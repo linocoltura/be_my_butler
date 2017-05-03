@@ -126,6 +126,10 @@ label{
   border-radius: 35px;
 }
 
+.imgMode{
+  height: 100px;
+}
+
 /* Transitions */
 
 @-webkit-keyframes fadeOut {
