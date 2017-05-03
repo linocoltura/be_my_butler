@@ -30,9 +30,13 @@
 #wrapper{
   position: relative;
   height:40px;
-  width: 200px;
+
   top: 45%;
-  left: 15%;
+  text-align: center;
+}
+
+a.#facebooklink{
+  width: 100%;
 }
 
 .container-fluid{
