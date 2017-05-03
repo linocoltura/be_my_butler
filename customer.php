@@ -1,6 +1,23 @@
 <?php
 
 include_once("includes/facebooksession.php");
+include_once("classes/Drink.class.php");
+
+/*
+
+    $statementPosts->execute();
+    return $statementPosts;
+
+
+    $post = new Post();
+    $statementPosts = $post->getPostsFromUser($userID);
+
+    while($result = $statementPosts->fetch(PDO::FETCH_ASSOC)):
+
+ */
+
+    $drink = new Drink();
+    $drinks = $drink->getAllDrinks();
 
 ?>
 
@@ -45,7 +62,11 @@ include_once("includes/facebooksession.php");
 </header>
 <div class="container">
 
-    
+    <div class="test">
+        <?php foreach ($drinks as $drink): ?>
+            <p><?php echo $drink['name'] ?></p>
+        <?php endforeach; ?>
+    </div>
 
 </div>
 
