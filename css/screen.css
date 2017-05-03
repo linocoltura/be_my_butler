@@ -39,8 +39,7 @@
     position: relative;
     height:667px;
     width: 375px;
-    overflow: hidden;
-    margin-top:40px;
+    top: 0;
 }
 
 #SplashLogo{
@@ -140,10 +139,24 @@ label{
   border-radius: 35px;
 }
 
-.imgMode{
-  height: 100px;
+img.imgMode{
+  height: 200px;
+  margin-left: -10%;
 }
 
+h3.titleLeft{
+  margin-top: 250px;
+  margin-left: -11%;
+  font-size: 1.7em;
+  text-decoration: none;
+}
+
+h3.titleRight{
+  margin-top: 250px;
+  margin-left: 11%;
+  font-size: 1.7em;
+  text-decoration: none;
+}
 /* Transitions */
 
 @-webkit-keyframes fadeOut {

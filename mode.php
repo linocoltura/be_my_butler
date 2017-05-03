@@ -50,11 +50,20 @@ if ($user->isCustomer()){
   <div class="container bg-overlay">
 <h3 class="animated bounceInDown">Ga verder als...</h3>
 
-    <a href="butler.php"><h3>Butler</h3>
-    <img src="img/Mode_Butler.svg" alt="Butler Mode" class="imgMode"></a>
+<div class="row">
 
-    <a href="customer.php"><h3>Klant</h3>
-    <img src="img/Mode_Supporter.svg" alt="Supporter Mode" class="imgMode"></a>
+  <div class="border col-xs-6">
+    <a href="butler.php">
+      <h3 class="titleLeft">Butler</h3>
+    <img src="img/Mode_Butler.svg" alt="Butler Mode" class="imgMode" id="float-left"></a>
+  </div>
+
+  <div class="border col-xs-6">
+    <a href="customer.php">
+      <h3 class="titleRight">Klant</h3>
+    <img src="img/Mode_Supporter.svg" alt="Supporter Mode" class="imgMode" id="float-right"></a>
+  </div>
+</div>
 
   </div>
 
