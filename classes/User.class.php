@@ -60,13 +60,16 @@ class User
     /**
      * @param mixed $balance
      */
+
+
     public function setBalance($balance)
     {
         $conn = db::getInstance();
 
-        $statement = $conn->prepare("INSERT INTO users (balance) VALUES (:balance)");
+        $statement = $conn->prepare("INSERT INTO users (balance) VALUES (:balance) WHERE id = :id");
         $statement ->bindValue(":balance", $balance);
-        if ($statement ->execute()){
+        $statement ->bindValue(":id", $this->getId());
+        if ($statement ->execute() && $balance >= 0){
             $this->balance = $balance;
         }
         else throw new Exception("Couldn't set balance");
@@ -87,8 +90,9 @@ class User
     {
         $conn = db::getInstance();
 
-        $statement = $conn->prepare("INSERT INTO users (loyalty) VALUES (:loyalty)");
+        $statement = $conn->prepare("INSERT INTO users (loyalty) VALUES (:loyalty) WHERE id = :id");
         $statement ->bindValue(":loyalty", $loyalty);
+        $statement ->bindValue(":id", $this->getId());
         if ($statement ->execute()){
             $this-$loyalty = $loyalty;
         }

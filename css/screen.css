@@ -35,7 +35,8 @@
     position: relative;
     height:667px;
     width: 375px;
-    top: 0;
+    overflow: hidden;
+    margin-top:40px;
 }
 
 #SplashLogo{
