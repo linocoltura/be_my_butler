@@ -1,6 +1,17 @@
 <?php
 
 include_once("includes/facebooksession.php");
+include_once("classes/User.class.php");
+
+$user = new User;
+$user->setId($_SESSION['userData']['id']);
+
+if ($user->isButler()){
+    header("location:butlerdeliver.php");
+}
+if ($user->isCustomer()){
+    header("location:customerpending.php");
+}
 
 ?>
 

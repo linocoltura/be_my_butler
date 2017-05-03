@@ -4,6 +4,7 @@ include_once("includes/facebooksession.php");
 include_once("classes/User.class.php");
 include_once("classes/Db.class.php");
 
+
 if (!empty($_POST) && isset($_POST['amount'])){
     $user = new User();
     $user->setId($_SESSION['userData']['id']);

@@ -139,4 +139,26 @@ class User
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function isButler(){
+        $conn = Db::getInstance();
+
+        $statement = $conn->prepare("SELECT * FROM services WHERE userID = :userID AND completed = FALSE");
+        $statement ->bindValue(":userID", $this->getUserID());
+        $statement->execute();
+        if ($statement->rowCount()>0){
+            return true;
+        } else return false;
+    }
+
+    public function isCustomer(){
+        $conn = Db::getInstance();
+
+        $statement = $conn->prepare("SELECT * FROM userIsCustomer WHERE userID = :userID AND completed = FALSE");
+        $statement ->bindValue(":userID", $this->getUserID());
+        $statement->execute();
+        if ($statement->rowCount()>0){
+            return true;
+        } else return false;
+    }
+
 }

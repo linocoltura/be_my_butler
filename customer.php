@@ -2,19 +2,18 @@
 
 include_once("includes/facebooksession.php");
 include_once("classes/Drink.class.php");
+include_once("classes/User.class.php");
 
-/*
+$user = new User;
+$user->setId($_SESSION['userData']['id']);
 
-    $statementPosts->execute();
-    return $statementPosts;
+if ($user->isButler()){
+    header("location:butlerdeliver.php");
+}
+if ($user->isCustomer()){
+    header("location:customerpending.php");
+}
 
-
-    $post = new Post();
-    $statementPosts = $post->getPostsFromUser($userID);
-
-    while($result = $statementPosts->fetch(PDO::FETCH_ASSOC)):
-
- */
 
     $drink = new Drink();
     $drinks = $drink->getAllDrinks();
