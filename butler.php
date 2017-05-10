@@ -61,6 +61,7 @@ if (!empty($_POST) && isset($_POST['amount'])){
 
   <div class="container bg-overlay">
     <div class="header">
+      <a href="mode.php"><span class="glyphicon glyphicon-menu-left"></span></a>
       <h1>Header</h1>
     </div>
 

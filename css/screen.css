@@ -38,6 +38,10 @@
 a.#facebooklink{
   width: 100%;
 }
+span.glyphicon.glyphicon-menu-left{
+  margin-left: 1%;
+  font-size: 2em;
+}
 
 .container-fluid{
     position: relative;
@@ -169,8 +173,9 @@ div.tutorial-video{
 }
 div.header{
   height: 15%;
-  width: auto;
+  width: 100%;
   background-color: white;
+  box-shadow: 2px 2px 5px #888888
 }
 
 div.butlerOverview{
@@ -186,10 +191,57 @@ span{
   margin-left: 25px;
   float: left;
 }
-h5{
 
+div.orderOverview{
+  height: 25%;
+  width: auto;
+  background-color: white;
+  margin-top: 5%;
+  border: 1px solid lightgrey;
+}
+img.userAvatar{
+  border-radius: 50%;
+  width: 80px;
+  position: absolute;
+  top: 25%;
+  left: 10%;
 }
 
+p.userName{
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  font-weight: 300;
+  font-size: 1.3em;
+}
+
+p.orderStatus{
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  font-weight: bold;
+  font-size: 1.3em;
+  color: green;
+}
+img.qr-red{
+position: absolute;
+width: 75px;
+top: 25%;
+left: 70%;
+}
+span.infoStatus{
+  position: absolute;
+  text-align: center;
+  color: grey;
+  font-style: oblique;
+}
+button.btn.btn-success{
+  position: absolute;
+      font-size: 1.5em;
+      top: 90%;
+      left: 50%;
+      transform: translateX(-50%);
+}
 /* Transitions */
 
 @-webkit-keyframes fadeOut {

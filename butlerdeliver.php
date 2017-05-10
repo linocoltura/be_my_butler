@@ -39,23 +39,29 @@ if ($user->isCustomer()){
         <div class="container">
             <a href="index.php"><div class="logo"></div></a>
 
-            <form class="navbar-form navbar-left">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">Go</button>
-            </form>
-            <ul class="nav navbar-nav">
-                <li><a class="profile" href="profile.php">Profile</a></li>
-                <li><a class="logout" href="logout.php">Logout</a></li>
-            </ul>
+
         </div>
     </nav>
 
 </header>
-<div class="container">
+<div class="container-fluid">
+<div class="container bg-overlay">
 
-    
+    <div class="header">
+    <a href="mode.php"><span class="glyphicon glyphicon-menu-left"></span></a>
+    <h1>Header</h1>
+    </div>
+
+    <div class="orderOverview">
+        <img class="userAvatar"src="https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg" alt="Avatar">
+        <p class="userName">Jayden Davis</p>
+        <p class="orderStatus">Delivered</p>
+        <img src="img/qr_red.svg" class="qr-red" alt="QR Code Not Ready">
+        <button type="button" class="btn btn-success" name="button">Aan de bar</button>
+        <span class="infoStatus">Geen nieuwe bestellingen</span>
+    </div>
+</div>
+
 
 </div>
 
