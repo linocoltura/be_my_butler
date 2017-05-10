@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2017 at 02:56 PM
+-- Generation Time: May 10, 2017 at 11:13 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -59,6 +59,18 @@ CREATE TABLE `services` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `userfavorsuser`
+--
+
+CREATE TABLE `userfavorsuser` (
+  `id` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `favorsUserID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `useriscustomer`
 --
 
@@ -98,7 +110,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `oauth_provider`, `oauth_uid`, `first_name`, `last_name`, `email`, `gender`, `locale`, `picture`, `link`, `created`, `modified`, `balance`, `loyalty`) VALUES
-(1, 'facebook', '1444507322266434', 'Lino', 'Coltura', 'lino.coltura@hotmail.com', 'male', 'en_US', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13912590_1189662361084266_4920162799492372226_n.jpg?oh=5081480f12b79fc42cc6307ad97527d2&oe=59BE580C', 'https://www.facebook.com/app_scoped_user_id/1444507322266434/', '2017-04-19 15:17:20', '2017-05-03 14:53:21', 20, 0);
+(1, 'facebook', '1444507322266434', 'Lino', 'Coltura', 'lino.coltura@hotmail.com', 'male', 'en_US', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13912590_1189662361084266_4920162799492372226_n.jpg?oh=5081480f12b79fc42cc6307ad97527d2&oe=59BE580C', 'https://www.facebook.com/app_scoped_user_id/1444507322266434/', '2017-04-19 15:17:20', '2017-05-10 11:11:11', 10, 0);
 
 --
 -- Indexes for dumped tables
@@ -116,6 +128,14 @@ ALTER TABLE `drinks`
 ALTER TABLE `services`
   ADD PRIMARY KEY (`serviceID`),
   ADD KEY `userID` (`userID`);
+
+--
+-- Indexes for table `userfavorsuser`
+--
+ALTER TABLE `userfavorsuser`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `userID` (`userID`),
+  ADD KEY `favorsUserID` (`favorsUserID`);
 
 --
 -- Indexes for table `useriscustomer`
@@ -144,7 +164,12 @@ ALTER TABLE `drinks`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `serviceID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `serviceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `userfavorsuser`
+--
+ALTER TABLE `userfavorsuser`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `useriscustomer`
 --
@@ -158,6 +183,13 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `userfavorsuser`
+--
+ALTER TABLE `userfavorsuser`
+  ADD CONSTRAINT `userfavorsuser_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `userfavorsuser_ibfk_2` FOREIGN KEY (`favorsUserID`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `useriscustomer`
