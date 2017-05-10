@@ -151,6 +151,18 @@ class User
         } else return false;
     }
 
+    public function getAsCustomer($serviceID){
+        $conn = Db::getInstance();
+
+        $statement = $conn->prepare("SELECT * FROM userIsCustomer WHERE userID = :userID AND serviceID = :serviceID");
+        $statement ->bindValue(":userID", $this->getID());
+        $statement ->bindValue(":userID", $serviceID);
+        $statement->execute();
+        if ($statement->rowCount()>0) {
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } else return false;
+    }
+
     public function getFavorites(){
 
     }

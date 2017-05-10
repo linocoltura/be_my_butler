@@ -76,14 +76,17 @@ if ($currentService = $user->getService() && $service->hasCustomers()) {
     <?php if ($service->hasCustomers()): ?>
 
     <?php foreach ($customers as $customer): ?>
-
-
-
+    <?php
+        $currentCustomer = new User;
+        $currentCustomer->setId($customer['id']);
+        $userIsCustomerData = $currentCustomer->getAsCustomer($service['serviceID']);
+    ?>
     <div class="orderOverview">
 
-        <img class="userAvatar"src="https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg" alt="Avatar">
-        <p class="userName">Jayden Davis</p>
-        <p class="orderStatus">Delivered</p>
+        <img class="userAvatar"src="<?php echo $customer['picture']?>" alt="Avatar">
+        <p class="userName"><?php echo $customer['first_name']?></p>
+        <p class="orderStatus ><?php echo ($userIsCustomerData['complete'] == true) ? 'green' : 'orange';?>"><?php echo ($userIsCustomerData['complete'] == true) ? 'Voltooid' : 'Actief';?></p>
+        <p class="order><?php echo $userIsCustomerData['drink']?>"><?php echo ($userIsCustomerData['complete'] == true) ? 'Voltooid' : 'Actief';?></p>
 
         <img src="img/qr_red.svg" class="qr-red" alt="QR Code Not Ready" data-toggle="modal" data-target="#exampleModalLong">
 
