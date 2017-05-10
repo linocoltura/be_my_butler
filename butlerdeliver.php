@@ -63,13 +63,13 @@ if ($currentService = $user->getService() && $service->hasCustomers()) {
     <h1>Header</h1>
     </div>
 
-    <div class="orderOverview">
+    <div class="orderOverview" id="23">
 
         <img class="userAvatar"src="https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg" alt="Avatar">
         <p class="userName">Jayden Davis</p>
         <p class="orderStatus">Delivered</p>
 
-        <img src="img/qr_red.svg" class="qr-red" alt="QR Code Not Ready" data-toggle="modal" data-target="#exampleModalLong">
+        <img src="img/qr_red.svg" class="qr-red qr" alt="QR Code Not Ready" data-toggle="modal" data-target="#exampleModalLong">
 
     </div>
 
@@ -81,14 +81,14 @@ if ($currentService = $user->getService() && $service->hasCustomers()) {
         $currentCustomer->setId($customer['id']);
         $userIsCustomerData = $currentCustomer->getAsCustomer($service['serviceID']);
     ?>
-    <div class="orderOverview">
+    <div class="orderOverview" id="<?php echo $userIsCustomerData['id'] ?>">
 
         <img class="userAvatar"src="<?php echo $customer['picture']?>" alt="Avatar">
         <p class="userName"><?php echo $customer['first_name']?></p>
         <p class="orderStatus ><?php echo ($userIsCustomerData['complete'] == true) ? 'green' : 'orange';?>"><?php echo ($userIsCustomerData['complete'] == true) ? 'Voltooid' : 'Actief';?></p>
         <p class="order><?php echo $userIsCustomerData['drink']?>"><?php echo ($userIsCustomerData['complete'] == true) ? 'Voltooid' : 'Actief';?></p>
 
-        <img src="img/qr_red.svg" class="qr-red" alt="QR Code Not Ready" data-toggle="modal" data-target="#exampleModalLong">
+        <img src="img/qr_red.svg" class="qr-red qr" alt="QR Code Not Ready" data-toggle="modal" data-target="#exampleModalLong">
 
     </div>
 
@@ -102,25 +102,26 @@ if ($currentService = $user->getService() && $service->hasCustomers()) {
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content camera">
+
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Bevestig uw order voor betaling</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Scan uw QR code</h4>
                 </div>
                 <div class="modal-body">
 
-                    <strong><span class="amoutOrder">Scan uw QR code</span></strong><br>
-
-                    <video autoplay="true" id="videoElement"></video>
+                    <div class="videoContainer">
+                        <video autoplay="true" id="videoElement"></video>
+                    </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success btn-secondary" data-dismiss="modal">Bevestig</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <span id="clickedOrder" style="display: none;"></span>
 
     <div class="infoNotice">
         <button type="button" class="btn btn-success" name="button">Aan de bar</button>
