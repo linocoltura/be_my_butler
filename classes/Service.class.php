@@ -140,5 +140,20 @@ class Service
         return $statement->execute();
     }
 
+    public function hasCustomers(){
+
+        $conn = db::getInstance();
+
+        $conn = Db::getInstance();
+
+        $statement = $conn->prepare("SELECT * FROM useriscustomer WHERE serviceID = :serviceID");
+        $statement ->bindValue(":serviceID", $this->getServiceID());
+        $statement->execute();
+        if ($statement->rowCount()>0) {
+            return true;
+        } else return false;
+
+    }
+
 
 }

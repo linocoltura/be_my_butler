@@ -2,6 +2,7 @@
 
 include_once("includes/facebooksession.php");
 include_once("classes/User.class.php");
+include_once("classes/Service.class.php");
 
 $user = new User;
 $service = new Service;
@@ -11,13 +12,15 @@ if ($user->isCustomer()){
     header("location:customerpending.php");
 }
 
-$currentService = $user->getService();
-$service->setServiceID($currentService['serviceID']);
-$service->setStatus($currentService['status']);
-$service->setAmount($currentService['amount']);
-$service->setCompleted($currentService['completed']);
+if ($currentService = $user->getService() && $service->hasCustomers()) {
 
-$customers = $service->getCustomers();
+    $service->setServiceID($currentService['serviceID']);
+    $service->setStatus($currentService['status']);
+    $service->setAmount($currentService['amount']);
+    $service->setCompleted($currentService['completed']);
+
+    $customers = $service->getCustomers();
+}
 
 ?>
 
@@ -50,11 +53,6 @@ $customers = $service->getCustomers();
         </div>
     </nav>
 
-<!--    <div class="test">-->
-<!--        --><?php //foreach ($drinks as $drink): ?>
-<!--            <p>--><?php //echo $drink['name'] ?><!--</p>-->
-<!--        --><?php //endforeach; ?>
-<!--    </div>-->
 
 </header>
 <div class="container-fluid">
@@ -75,6 +73,8 @@ $customers = $service->getCustomers();
 
     </div>
 
+    <?php if ($service->hasCustomers()): ?>
+
     <?php foreach ($customers as $customer): ?>
 
 
@@ -90,6 +90,10 @@ $customers = $service->getCustomers();
     </div>
 
     <?php endforeach; ?>
+
+    <?php else: ?>
+        <p>Nog geen bestellingen</p>
+    <?php endif; ?>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">

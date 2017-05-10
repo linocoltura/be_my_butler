@@ -124,7 +124,9 @@ class User
         $statement = $conn->prepare("SELECT * FROM services WHERE completed = FALSE AND userID = :userID");
         $statement ->bindValue(":userID", $this->getId());
         $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        if ($statement->rowCount()>0) {
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } else return false;
     }
 
     public function isButler(){
