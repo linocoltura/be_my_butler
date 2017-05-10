@@ -56,14 +56,46 @@ if ($user->isCustomer()){
         <img class="userAvatar"src="https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg" alt="Avatar">
         <p class="userName">Jayden Davis</p>
         <p class="orderStatus">Delivered</p>
-        <img src="img/qr_red.svg" class="qr-red" alt="QR Code Not Ready">
-        <button type="button" class="btn btn-success" name="button">Aan de bar</button>
-        <span class="infoStatus">Geen nieuwe bestellingen</span>
-    </div>
+
+        <img src="img/qr_red.svg" class="qr-red" alt="QR Code Not Ready" data-toggle="modal" data-target="#exampleModalLong">
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="infoNotice">
+          <button type="button" class="btn btn-success" name="button">Aan de bar</button>
+          <span class="infoStatus">Geen nieuwe bestellingen meer toelaten</span>
+        </div>
+
+      </div>
+  </div>
 </div>
 
 
-</div>
+
+
+
+
 
 <script type="text/javascript" src="js/checkCustomers.js"></script>
 </body>

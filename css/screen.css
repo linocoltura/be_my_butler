@@ -234,14 +234,27 @@ span.infoStatus{
   text-align: center;
   color: grey;
   font-style: oblique;
+  top: 90%;
+  left: 45%;
+  transform: translateX(-55%);
 }
 button.btn.btn-success{
   position: absolute;
-      font-size: 1.5em;
-      top: 90%;
+      font-size: 1.2em;
+      top: 85%;
       left: 50%;
       transform: translateX(-50%);
 }
+
+.qr-red{
+  cursor: pointer;
+
+}
+
+.qrPopup{
+  display: none;
+}
+
 /* Transitions */
 
 @-webkit-keyframes fadeOut {
