@@ -2,6 +2,7 @@
 
 include_once("includes/facebooksession.php");
 include_once("classes/User.class.php");
+include_once("classes/Service.class.php");
 
 $user = new User;
 $user->setId($_SESSION['userData']['id']);
@@ -11,6 +12,18 @@ if ($user->isButler()){
 }
 if ($user->isCustomer()){
     header("location:customerpending.php");
+}
+
+if (!empty($_POST) && isset($_POST['amount'])){
+    $service = new Service();
+    $service->setUserID($_SESSION['userData']['id']);
+    $service->setOpen(true);
+    $service->setAmount($_POST['amount']);
+    $service->setCompleted(false);
+
+    if ($service->saveService()){
+        header("location:butlerdeliver.php");
+    }
 }
 
 ?>

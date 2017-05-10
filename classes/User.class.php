@@ -69,7 +69,7 @@ class User
     {
         $conn = Db::getInstance();
 
-        $statement = $conn->prepare("UPDATE Users SET balance = :balance WHERE id = :id;");
+        $statement = $conn->prepare("UPDATE users SET balance = :balance WHERE id = :id;");
         $statement ->bindValue(":balance", $balance);
         $statement ->bindValue(":id", $this->getId());
         return $statement->execute();
@@ -117,24 +117,12 @@ class User
 
     public function getService(){
 
-        // returns active service this user
+        // returns active service of this user (butler)
 
         $conn = Db::getInstance();
 
         $statement = $conn->prepare("SELECT * FROM services WHERE completed = FALSE AND userID = :userID");
         $statement ->bindValue(":userID", $this->getId());
-        $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function getServices(){
-
-        // returns all active services
-
-        $conn = Db::getInstance();
-
-        $statement = $conn->prepare("SELECT * FROM services WHERE completed = FALSE");
-        $statement ->bindValue(":userID", $this->getID());
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -160,5 +148,11 @@ class User
             return true;
         } else return false;
     }
+
+    public function getFavorites(){
+
+    }
+
+
 
 }

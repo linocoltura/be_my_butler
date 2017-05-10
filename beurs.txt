@@ -1,0 +1,21 @@
+	productfiche 
+-A4 
+-contactgegevens 
+-titel project 
+-screenshot 
+-korte
+-beschrijving.
+-template in word
+-mag worden aangepast
+-minstens 10 exemplaren
+-robby wilt ook digitaal hebben
+
+	3 pancartes
+-probleem
+-oplossing
+-doelgroep / budgetering / extra info
+
+	korte presentatie
+-enkele slides: dit is mijn product, 1 / 2 minuten + demo
+
+	working prototype

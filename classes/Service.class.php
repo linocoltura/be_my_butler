@@ -4,7 +4,7 @@ class Service
 {
     private $serviceID;
     private $userID;
-    private $open;
+    private $status;
     private $amount;
     private $completed;
 
@@ -43,20 +43,20 @@ class Service
     /**
      * @return mixed
      */
-    public function getOpen()
+    public function getStatus()
     {
-        return $this->open;
+        return $this->status;
     }
 
     /**
      * @param mixed $open
      */
-    public function setOpen($open)
+    public function setStatus($status)
     {
-        if (!is_bool($open)){
-            throw new Exception('Must be a boolean');
+        if ($status>3){
+            throw new Exception('Status can only be 1 - 3');
         }
-        $this->open = $open;
+        $this->status = $status;
     }
 
     /**
@@ -95,20 +95,38 @@ class Service
             throw new Exception('Must be a boolean');
         }
         $this->completed = $completed;
+
+        $conn = Db::getInstance();
+
+        $statement = $conn->prepare("UPDATE services SET completed = :completed WHERE id = :id AND completed = false;");
+        $statement ->bindValue(":completed", $completed);
+        $statement ->bindValue(":id", $this->getUserID());
+
+        return $statement->execute();
+    }
+
+    public function getServices(){
+
+        // returns all active services
+
+        $conn = Db::getInstance();
+
+        $statement = $conn->prepare("SELECT * FROM services WHERE completed = FALSE");
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
 
     public function saveService(){
         $conn = db::getInstance();
 
-        $statement = $conn->prepare("INSERT INTO services (userID, open, amount, completed) VALUES (:userID, :open, :amount, :completed)");
+        $statement = $conn->prepare("INSERT INTO services (userID, status, amount, completed) VALUES (:userID, :status, :amount, :completed)");
         $statement ->bindValue(":userID", $this->getUserID());
-        $statement ->bindValue(":open", $this->getOpen());
+        $statement ->bindValue(":status", $this->getStatus());
         $statement ->bindValue(":amount", $this->getAmount());
         $statement ->bindValue(":completed", $this->getCompleted());
         return $statement->execute();
     }
-
 
 
 }
