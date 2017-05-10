@@ -1,19 +1,20 @@
 * {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -moz-tap-highlight-color: rgba(0, 0, 0, 0);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
-    outline:0;
+    outline: 0;
 }
-.btn:focus,.btn:active, button:focus, button:active {
+.btn:focus,
+.btn:active,
+button:focus,
+button:active {
     outline: none !important;
 }
 .bg-overlay {
     position: absolute;
     width: 100%;
     height: 100%;
-    background:#efefef;
+    background: #efefef;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -21,357 +22,351 @@
     left: 0;
     overflow: auto;
 }
-.container{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
-#wrapper{
-  position: relative;
-  height:40px;
-
-  top: 45%;
-  text-align: center;
-}
-
-a.#facebooklink{
-  width: 100%;
-}
-span.glyphicon.glyphicon-menu-left{
-  margin-left: 1%;
-  font-size: 2em;
-}
-
-.container-fluid{
+#wrapper {
     position: relative;
-    height:667px;
+    height: 40px;
+    top: 45%;
+    text-align: center;
+}
+a.#facebooklink {
+    width: 100%;
+}
+span.glyphicon.glyphicon-menu-left {
+    margin-left: 1%;
+    font-size: 2em;
+}
+.container-fluid {
+    position: relative;
+    height: 667px;
     width: 375px;
     overflow: hidden;
     margin-top: 40px;
     top: 0;
 }
-
-#SplashLogo{
-position: absolute;
-top: 37%;
-left: 13%;
-display: block;
-width: 75%;
-    opacity:0;
--webkit-animation: fadeOut 5s ; /* Safari 4+ */
-  -moz-animation:    fadeOut 5s ; /* Fx 5+ */
-  -o-animation:      fadeOut 5s ; /* Opera 12+ */
-  animation:         fadeOut 5s ; /* IE 10+, Fx 29+ */
-  animation-fill-mode: forwards;
+#SplashLogo {
+    position: absolute;
+    top: 37%;
+    left: 13%;
+    display: block;
+    width: 75%;
+    opacity: 0;
+    -webkit-animation: fadeOut 5s;
+    /* Safari 4+ */
+    /* Fx 5+ */
+    /* Opera 12+ */
+    animation: fadeOut 5s;
+    /* IE 10+, Fx 29+ */
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
     -webkit-animation-delay: .5s;
-    -moz-animation-delay: .5s;
-    -o-animation-delay: .5s;
     animation-delay: .5s;
 }
-#SplashKV{
-position: absolute;
-top: 70%;
-left: 45%;
-display: block;
-width: 15%;
-    opacity:0;
-    -webkit-animation: fadeOut 5s ; /* Safari 4+ */
-  -moz-animation:    fadeOut 5s ; /* Fx 5+ */
-  -o-animation:      fadeOut 5s ; /* Opera 12+ */
-  animation:         fadeOut 5s ; /* IE 10+, Fx 29+ */
-  animation-fill-mode: forwards;
+#SplashKV {
+    position: absolute;
+    top: 70%;
+    left: 45%;
+    display: block;
+    width: 15%;
+    opacity: 0;
+    -webkit-animation: fadeOut 5s;
+    /* Safari 4+ */
+    /* Fx 5+ */
+    /* Opera 12+ */
+    animation: fadeOut 5s;
+    /* IE 10+, Fx 29+ */
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
     -webkit-animation-delay: .5s;
-    -moz-animation-delay: .5s;
-    -o-animation-delay:.5s;
     animation-delay: .5s;
 }
-div#facebookbutton{
-  position: absolute;
-  display: inline-block;
-  pointer-events: none;
-  margin: 0 auto;
-    margin-left:-30px;
-  -webkit-animation: fadeIn 2s ; /* Safari 4+ */
-  -moz-animation:    fadeIn 2s ; /* Fx 5+ */
-  -o-animation:      fadeIn 2s ; /* Opera 12+ */
-      animation:         fadeIn 2s ; /* IE 10+, Fx 29+ */
-   animation-fill-mode: forwards;
+div#facebookbutton {
+    position: absolute;
+    display: inline-block;
+    pointer-events: none;
+    margin: 0 auto;
+    margin-left: -30px;
+    -webkit-animation: fadeIn 2s;
+    /* Safari 4+ */
+    /* Fx 5+ */
+    /* Opera 12+ */
+    animation: fadeIn 2s;
+    /* IE 10+, Fx 29+ */
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-delay: 5s;
     animation-delay: 5s;
-opacity: 0;
+    opacity: 0;
 }
-#facebooklink{
-display: inline-block;
+#facebooklink {
+    display: inline-block;
 }
-
-h1{
-text-align: center;
-animation-delay: 0.3s;
+h1 {
+    text-align: center;
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
 }
-
-h3{
-  margin-top: 5em;
-  text-align: center;
-  font-size: 1.2em;
+h3 {
+    margin-top: 5em;
+    text-align: center;
+    font-size: 1.2em;
 }
-
-img{
-  /*position: absolute;*/
-  /*top: 2%;*/
+img {
+    /*position: absolute;*/
+    /*top: 2%;*/
 }
-#cameraButton{
-  position: absolute;
-  top: 45%;
-  left: 40%;
-  animation-delay: 2s;
+#cameraButton {
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
 }
-#syncButton{
-  position: absolute;
-  top: 60%;
-  left: 40%;
-  animation-delay:5s;
+#syncButton {
+    position: absolute;
+    top: 60%;
+    left: 40%;
+    -webkit-animation-delay: 5s;
+    animation-delay: 5s;
 }
-i{
-  color:#e74c3c;
+i {
+    color: #e74c3c;
 }
-.form-group{
-margin-top: 50%;
+.form-group {
+    margin-top: 50%;
 }
-label{
-  animation-delay: 1s;
+label {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
 }
 .btn-circle.btn-xl {
-  width: 70px;
-  height: 70px;
-  padding: 10px 16px;
-  font-size: 24px;
-  line-height: 1.33;
-  border-radius: 35px;
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    font-size: 24px;
+    line-height: 1.33;
+    border-radius: 35px;
 }
-
-img.imgMode{
-  height: 200px;
-  margin-left: -10%;
+img.imgMode {
+    height: 200px;
+    margin-left: -10%;
 }
-
-h3.titleLeft{
-  margin-left: -11%;
-  font-size: 1.7em;
-  text-decoration: none;
+h3.titleLeft {
+    margin-left: -11%;
+    font-size: 1.7em;
+    text-decoration: none;
 }
-
-h3.titleRight{
-  margin-left: 11%;
-  font-size: 1.7em;
-  text-decoration: none;
+h3.titleRight {
+    margin-left: 11%;
+    font-size: 1.7em;
+    text-decoration: none;
 }
-
-div.tutorial-video{
-  display:none;
+div.tutorial-video {
+    display: none;
 }
-div.header{
-  height: 15%;
-  width: 100%;
-  background-color: white;
-  box-shadow: 2px 2px 5px #888888
+div.header {
+    height: 15%;
+    width: 100%;
+    background-color: white;
+    box-shadow: 2px 2px 5px #888888
 }
-
-div.butlerOverview{
-  background-color: white;
+div.butlerOverview {
+    background-color: white;
 }
-div.loyalOverview{
-  height: 20%;
-  width: auto;
-  background-color: white;
+div.loyalOverview {
+    height: 20%;
+    width: auto;
+    background-color: white;
 }
-span{
-  margin-top: 10px;
-  margin-left: 25px;
-  float: left;
+span {
+    margin-top: 10px;
+    margin-left: 25px;
+    float: left;
 }
-
-div.orderOverview{
-  height: 25%;
-  width: auto;
-  background-color: white;
-  margin-top: 5%;
-  border: 1px solid lightgrey;
+div.orderOverview {
+    height: 25%;
+    width: auto;
+    background-color: white;
+    margin-top: 5%;
+    border: 1px solid lightgrey;
 }
-img.userAvatar{
-  border-radius: 50%;
-  width: 80px;
-  position: absolute;
-  top: 25%;
-  left: 10%;
+img.userAvatar {
+    border-radius: 50%;
+    width: 80px;
+    position: absolute;
+    top: 25%;
+    left: 10%;
 }
-
-p.userName{
-  position: absolute;
-  top: 25%;
-  left: 42%;
-  font-weight: 300;
-  font-size: 1.3em;
+p.userName {
+    position: absolute;
+    top: 25%;
+    left: 42%;
+    font-weight: 300;
+    font-size: 1.3em;
 }
-
-p.orderStatus{
-  position: absolute;
-  top: 30%;
-  left: 35%;
-  font-weight: bold;
-  font-size: 1.3em;
-  color: green;
+p.orderStatus {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    font-weight: bold;
+    font-size: 1.3em;
+    color: green;
 }
-img.qr-red{
-position: absolute;
-width: 75px;
-top: 25%;
-left: 70%;
+img.qr-red {
+    position: absolute;
+    width: 75px;
+    top: 25%;
+    left: 70%;
 }
-span.infoStatus{
-  position: absolute;
-  text-align: center;
-  color: grey;
-  font-style: oblique;
-  top: 90%;
-  left: 45%;
-  transform: translateX(-55%);
+span.infoStatus {
+    position: absolute;
+    text-align: center;
+    color: grey;
+    font-style: oblique;
+    top: 90%;
+    left: 45%;
+    -webkit-transform: translateX(-55%);
+    transform: translateX(-55%);
 }
-button.btn.btn-success{
-  position: absolute;
-      font-size: 1.2em;
-      top: 85%;
-      left: 50%;
-      transform: translateX(-50%);
+.infoNotice button.btn.btn-success {
+    position: absolute;
+    font-size: 1.2em;
+    top: 85%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
 }
-
-.qr-red{
-  cursor: pointer;
-
+.qr-red {
+    cursor: pointer;
 }
-
-.qrPopup{
-  display: none;
+.qrPopup {
+    display: none;
 }
-
-
-.modal-content{
-  width: 375px;
+.modal-content {
+    width: 375px;
 }
-video#videoElement{
-  width: 100%;
+video#videoElement {
+    width: 100%;
 }
-
-.modal-dialog{
-  width: auto;
+.modal {
+    padding-right: 0;
 }
-
-.modal-content{
-  display: inline-block;
+.modal-dialog {
+    width: auto;
 }
-div#exampleModalLong{
-  position: absolute;
+.modal-content {
+    width: 100%;
 }
-.green{
-  color: #2ecc71;
+.modal-content {
+    display: inline-block;
 }
-.orange{
-color:  #e67e22;
+div#exampleModalLong {
+    position: absolute;
 }
-.camera .modal-body{
-    padding:0;
+.green {
+    color: #2ecc71;
 }
-
-img.beerSpots{
-
-width: 55px;
-
+.orange {
+    color: #e67e22;
 }
-.inlineBeerSpots img{
-float: left;
-animation-fill-mode: forwards;
-animation-duration: 2s;
+.camera .modal-body {
+    padding: 0;
 }
-
-img.fbAvatar.animated.bounceInLeft{
-  position: absolute;
-  top: 2%;
+.videoContainer {
+    width: 100%;
+    height: 400px;
+    max-height: 356px;
+    position: relative;
+    overflow: hidden;
 }
-
-.inlineBeerSpots{
-margin-left: 36%;
-margin-top: 20%;
+video#videoElement {
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+    min-height: 100%;
 }
-
-span.glyphicon.glyphicon-heart{
-  color: #e74c3c;
-  font-size: 2em;
-  margin-left: 88%;
+img.beerSpots {
+    width: 55px;
 }
-
-
+.inlineBeerSpots img {
+    float: left;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+}
+img.fbAvatar.animated.bounceInLeft {
+    position: absolute;
+    top: 2%;
+}
+.inlineBeerSpots {
+    margin-left: 36%;
+    margin-top: 20%;
+}
+span.glyphicon.glyphicon-heart {
+    color: #e74c3c;
+    font-size: 2em;
+    margin-left: 88%;
+}
+.modal-footer {
+    text-align: center;
+}
 
 /* Transitions */
 
 @-webkit-keyframes fadeOut {
-  0%   { opacity: 0; }
-  25% {  opacity: 1; }
-  75% {  opacity: 1; }
-  100%{  opacity: 0; }
-}
-@-moz-keyframes fadeOut {
-    0%   { opacity: 0; }
-    25% {  opacity: 1; }
-    75% {  opacity: 1; }
-    100%{  opacity: 0; }
-}
-@-o-keyframes fadeOut {
-    0%   { opacity: 0; }
-    25% {  opacity: 1; }
-    75% {  opacity: 1; }
-    100%{  opacity: 0; }
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 @keyframes fadeOut {
-    0%   { opacity: 0; }
-    25% {  opacity: 1; }
-    75% {  opacity: 1; }
-    100%{  opacity: 0; }
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 @-webkit-keyframes fadeIn {
-  0%   { opacity: 0; }
-
-  100%{
-  opacity: 1;
-      z-index: 999;
-      position: relative;
-  }
-}
-@-moz-keyframes fadeIn {
-  0%   { opacity: 0; }
-
-  100%{
-  opacity: 1;
-      z-index: 999;
-position: relative;
-  }
-}
-@-o-keyframes fadeIn {
-  0%   { opacity: 0; }
-  100%{
-  opacity: 1;
-      z-index: 999;
-position: relative;
-  }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        z-index: 999;
+        position: relative;
+    }
 }
 @keyframes fadeIn {
-  0%   { opacity: 0;
-      z-index: 999;
-position: relative;
-  }
-
-  100%{
-  opacity: 1;
-      z-index: 999;
-position: relative;
-  }
+    0% {
+        opacity: 0;
+        z-index: 999;
+        position: relative;
+    }
+    100% {
+        opacity: 1;
+        z-index: 999;
+        position: relative;
+    }
 }

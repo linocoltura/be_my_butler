@@ -13,3 +13,8 @@ function handleVideo(stream) {
 function videoError(e) {
     // do something
 }
+
+$('.qr').click(function () {
+    var userIsCustomerId = $(this).parent().prop("id");
+    $('#clickedOrder').html(userIsCustomerId);
+});
