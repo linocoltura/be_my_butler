@@ -32,6 +32,7 @@ if ($user->isCustomer()){
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/screen.css">
+    <link rel="stylesheet" href="css/animate.css" />
 
     <!-- JavaScript -->
     <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
@@ -42,24 +43,40 @@ if ($user->isCustomer()){
 <body>
 <header>
     <nav class="nav navbar-default">
-        <div class="container">
-            <a href="index.php"><div class="logo"></div></a>
 
-            <form class="navbar-form navbar-left">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">Go</button>
-            </form>
-            <ul class="nav navbar-nav">
-                <li><a class="profile" href="profile.php">Profile</a></li>
-                <li><a class="logout" href="logout.php">Logout</a></li>
-            </ul>
-        </div>
     </nav>
 
 </header>
-<div class="container">
+<div class="container-fluid">
+    <div class="container bg-overlay">
+        <div class="header">
+
+        <h1>Header</h1>
+        </div>
+
+        <div class="orderOverview">
+
+            <img class="userAvatar"src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg" alt="Avatar">
+                <p class="userName">Mike Matthews</p>
+                    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+            <div class="inlineBeerSpots">
+                <img src="img/pint.svg" alt="Full Pint" class="beerSpots animated infinite pulse">
+                    <img src="img/pintEmpty.svg" alt="Empty Pint" class="beerSpots">
+                        <img src="img/pintEmpty.svg" alt="Empty Pint" class="beerSpots">
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
 
     <div class="test">
         <?php foreach ($drinks as $drink): ?>

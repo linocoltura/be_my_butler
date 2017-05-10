@@ -31,7 +31,7 @@ include_once("includes/facebooksession.php");
 
 </header>
 <div class="container-fluid">
-<div class="container bg-overlay">
+<div class="container bg-overlay" style="overflow-y: scroll;">
 
 </div>
 
