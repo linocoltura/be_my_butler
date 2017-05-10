@@ -4,13 +4,20 @@ include_once("includes/facebooksession.php");
 include_once("classes/User.class.php");
 
 $user = new User;
+$service = new Service;
 $user->setId($_SESSION['userData']['id']);
-
-
 
 if ($user->isCustomer()){
     header("location:customerpending.php");
 }
+
+$currentService = $user->getService();
+$service->setServiceID($currentService['serviceID']);
+$service->setStatus($currentService['status']);
+$service->setAmount($currentService['amount']);
+$service->setCompleted($currentService['completed']);
+
+$customers = $service->getCustomers();
 
 ?>
 
@@ -43,6 +50,12 @@ if ($user->isCustomer()){
         </div>
     </nav>
 
+<!--    <div class="test">-->
+<!--        --><?php //foreach ($drinks as $drink): ?>
+<!--            <p>--><?php //echo $drink['name'] ?><!--</p>-->
+<!--        --><?php //endforeach; ?>
+<!--    </div>-->
+
 </header>
 <div class="container-fluid">
 <div class="container bg-overlay">
@@ -53,41 +66,56 @@ if ($user->isCustomer()){
     </div>
 
     <div class="orderOverview">
+
         <img class="userAvatar"src="https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg" alt="Avatar">
         <p class="userName">Jayden Davis</p>
         <p class="orderStatus">Delivered</p>
 
         <img src="img/qr_red.svg" class="qr-red" alt="QR Code Not Ready" data-toggle="modal" data-target="#exampleModalLong">
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-          <div class="modal-dialog" role="document">
+    </div>
+
+    <?php foreach ($customers as $customer): ?>
+
+
+
+    <div class="orderOverview">
+
+        <img class="userAvatar"src="https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg" alt="Avatar">
+        <p class="userName">Jayden Davis</p>
+        <p class="orderStatus">Delivered</p>
+
+        <img src="img/qr_red.svg" class="qr-red" alt="QR Code Not Ready" data-toggle="modal" data-target="#exampleModalLong">
+
+    </div>
+
+    <?php endforeach; ?>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
             </div>
-          </div>
         </div>
+    </div>
 
-
-
-        <div class="infoNotice">
-          <button type="button" class="btn btn-success" name="button">Aan de bar</button>
-          <span class="infoStatus">Geen nieuwe bestellingen meer toelaten</span>
-        </div>
-
-      </div>
+    <div class="infoNotice">
+        <button type="button" class="btn btn-success" name="button">Aan de bar</button>
+        <span class="infoStatus">Geen nieuwe bestellingen meer toelaten</span>
+    </div>
   </div>
 </div>
 
