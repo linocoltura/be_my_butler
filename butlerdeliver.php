@@ -56,7 +56,7 @@ if ($currentService = $user->getService() && $service->hasCustomers()) {
 
 </header>
 <div class="container-fluid">
-<div class="container bg-overlay">
+<div class="container bg-overlay" style="overflow-y: scroll;">
 
     <div class="header">
     <a href="mode.php"><span class="glyphicon glyphicon-menu-left"></span></a>
@@ -100,17 +100,20 @@ if ($currentService = $user->getService() && $service->hasCustomers()) {
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Bevestig uw order voor betaling</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+
+                    <strong><span class="amoutOrder">Scan uw QR code</span></strong><br>
+
+                    <video autoplay="true" id="videoElement"></video>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
@@ -128,7 +131,7 @@ if ($currentService = $user->getService() && $service->hasCustomers()) {
 
 
 
-
+<script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/checkCustomers.js"></script>
 </body>
 </html>
