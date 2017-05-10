@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2017 at 11:13 AM
+-- Generation Time: May 10, 2017 at 11:20 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -50,11 +50,18 @@ INSERT INTO `drinks` (`id`, `name`, `price`) VALUES
 CREATE TABLE `services` (
   `serviceID` int(11) NOT NULL,
   `userID` int(11) NOT NULL,
-  `open` tinyint(1) NOT NULL DEFAULT '1',
+  `status` int(1) NOT NULL DEFAULT '1',
   `amount` int(2) NOT NULL,
   `completed` tinyint(1) NOT NULL DEFAULT '0',
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`serviceID`, `userID`, `status`, `amount`, `completed`, `date`) VALUES
+(4, 1, 1, 1, 0, '2017-05-10 11:20:33');
 
 -- --------------------------------------------------------
 
@@ -110,7 +117,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `oauth_provider`, `oauth_uid`, `first_name`, `last_name`, `email`, `gender`, `locale`, `picture`, `link`, `created`, `modified`, `balance`, `loyalty`) VALUES
-(1, 'facebook', '1444507322266434', 'Lino', 'Coltura', 'lino.coltura@hotmail.com', 'male', 'en_US', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13912590_1189662361084266_4920162799492372226_n.jpg?oh=5081480f12b79fc42cc6307ad97527d2&oe=59BE580C', 'https://www.facebook.com/app_scoped_user_id/1444507322266434/', '2017-04-19 15:17:20', '2017-05-10 11:11:11', 10, 0);
+(1, 'facebook', '1444507322266434', 'Lino', 'Coltura', 'lino.coltura@hotmail.com', 'male', 'en_US', 'https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13912590_1189662361084266_4920162799492372226_n.jpg?oh=5081480f12b79fc42cc6307ad97527d2&oe=59BE580C', 'https://www.facebook.com/app_scoped_user_id/1444507322266434/', '2017-04-19 15:17:20', '2017-05-10 11:20:34', 10, 0);
 
 --
 -- Indexes for dumped tables
@@ -164,7 +171,7 @@ ALTER TABLE `drinks`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `serviceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `serviceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `userfavorsuser`
 --

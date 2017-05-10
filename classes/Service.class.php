@@ -49,7 +49,7 @@ class Service
     }
 
     /**
-     * @param mixed $open
+     * @param mixed $status
      */
     public function setStatus($status)
     {

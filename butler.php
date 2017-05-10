@@ -17,7 +17,7 @@ if ($user->isCustomer()){
 if (!empty($_POST) && isset($_POST['amount'])){
     $service = new Service();
     $service->setUserID($_SESSION['userData']['id']);
-    $service->setOpen(true);
+    $service->setStatus(1);
     $service->setAmount($_POST['amount']);
     $service->setCompleted(false);
 
