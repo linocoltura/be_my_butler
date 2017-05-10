@@ -309,6 +309,9 @@ img.fbAvatar.animated.bounceInLeft {
     margin-left: 36%;
     margin-top: 20%;
 }
+span.Overview.glyphicon.glyphicon-heart{
+  margin-left: 0;
+}
 span.glyphicon.glyphicon-heart {
     color: #e74c3c;
     font-size: 2em;
