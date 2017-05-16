@@ -60,7 +60,7 @@ if ($user->isCustomer()){
                 <p class="userName">Mike Matthews</p>
                     <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
             <div class="inlineBeerSpots">
-                <img src="img/pint.svg" alt="Full Pint" class="beerSpots animated infinite pulse">
+                <img src="img/pint.svg" alt="Full Pint" class="beerSpots animated infinite pulse" data-toggle="modal" data-target="#exampleModalLong">
                     <img src="img/pintEmpty.svg" alt="Empty Pint" class="beerSpots">
                         <img src="img/pintEmpty.svg" alt="Empty Pint" class="beerSpots">
 
@@ -76,6 +76,40 @@ if ($user->isCustomer()){
 
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Plaats uw bestelling:</h4>
+                      <span class="glyphicon glyphicon-time"></span>
+                </div>
+                <div class="modal-body">
+
+
+
+                        <div class="form-group" style="margin-top:0;">
+                              <label for="sel1">Drank Menu:</label>
+                              <select class="form-control" id="sel1">
+                                <option>Bier</option>
+                                <option>Cola</option>
+                                <option>Koffie</option>
+                                <option>Water</option>
+                              </select>
+                            </div>
+                            <label for="priceDrinks">€ 2.50</label>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success btn-secondary" data-dismiss="modal">Bevestig</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <div class="test">
@@ -86,6 +120,7 @@ if ($user->isCustomer()){
 
 </div>
 
+<script type="text/javascript" src="js/script.js"></script>
 
 </body>
 </html>
