@@ -56,10 +56,10 @@ if ($currentService = $user->getService() && $service->hasCustomers()) {
 
 </header>
 <div class="container-fluid">
-<div class="container bg-overlay" style="overflow-y: scroll;">
+<div class="container bg-overlay">
 
     <div class="header">
-    <a href="mode.php"><span class="glyphicon glyphicon-menu-left"></span></a>
+
     <h1>Header</h1>
     </div>
 

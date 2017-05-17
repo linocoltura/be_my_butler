@@ -48,7 +48,7 @@ if ($user->isCustomer()){
 <div class="container-fluid">
 <div class="container bg-overlay">
 
-    <img src="<?php echo $_SESSION['userData']['picture'] ?>" alt="fbAvatar" class="animated bounceInLeft">
+    <img src="<?php echo $_SESSION['userData']['picture'] ?>" alt="fbAvatar" class="fbAvatar animated bounceInLeft">
     <h1 class="animated bounceInDown"><?php echo "Hello ". $_SESSION['userData']['first_name'] ?></h1>
     <h3>Scan uw ticket om uw registratie te voltooien</h3>
 

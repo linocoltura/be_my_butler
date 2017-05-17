@@ -61,7 +61,7 @@ if (!empty($_POST) && isset($_POST['amount'])){
 
   <div class="container bg-overlay">
     <div class="header">
-      <a href="mode.php"><span class="glyphicon glyphicon-menu-left"></span></a>
+
       <h1>Header</h1>
     </div>
 
@@ -86,7 +86,7 @@ if (!empty($_POST) && isset($_POST['amount'])){
     </div>
           <div class="loyalOverview">
             <span class="glyphicon glyphicon-bell" aria-hidden="true"></span><h5>Aantal Bedieningen</h5>
-            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span><h5>Aantal Favorites</h5>
+            <span class="Overview glyphicon glyphicon-heart" aria-hidden="true"></span><h5>Aantal Favorites</h5>
             <span class="glyphicon glyphicon-gift" aria-hidden="true"></span></span><h5>Loyaliteits Punten</h5>
           </div>
 
