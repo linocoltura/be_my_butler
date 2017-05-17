@@ -5,9 +5,8 @@ setInterval(function(){
 
     $.ajax({
         method: "POST",
-        url: "ajax/checkCustomer.php",
+        url: "ajax/changeStatus.php",
         data: {
-
         }
     })
         .done(function (response) {
@@ -19,16 +18,9 @@ setInterval(function(){
             }
             if(response.code == 200){
 
-                // if(response.flag == true){
-                //     $('#'+postID).find('.flagIcon').addClass("flagged");
-                //     $('.flagAlert').show();
-                //     $('.flagAlert').delay(3000).fadeOut(800);
-                //
-                // } else{
-                //     $('#'+postID).find('.flagIcon').removeClass("flagged");
-                //
-                // }
+                if(response.status == 1){
 
+                }
             }
         });
 

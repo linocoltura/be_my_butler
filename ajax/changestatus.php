@@ -3,43 +3,53 @@ header('Content-Type: application/json');
 session_start();
 
 include_once("classes/Service.class.php");
+include_once("classes/User.class.php");
 
-$service = new Service();
-$service->setUserID($_SESSION['userData']['id']);
-$service->setOpen(true);
-$service->setCompleted(false);
+$user = new User;
+$service = new Service;
+$user->setId($_SESSION['userData']['id']);
 
+if ($currentService = $user->getService()) {
 
-if (!empty($_POST['postID']) && !empty($_POST['newDescription'])) {
+    $service->setServiceID($currentService['serviceID']);
+    $service->setStatus($currentService['status']);
+    $service->setAmount($currentService['amount']);
+    $service->setCompleted($currentService['completed']);
 
-    $user = new User();
-    $user->setEmail($_SESSION['user']);
-    $currentUser = $user->getProfile();
-    $userID = $currentUser['userID'];
-    $postID = $_POST['postID'];
-    $newDescription = $_POST['newDescription'];
+}
 
-    $post = new Post();
-    $post->setUserID($userID);
-    $post->setPostID($postID);
-    $post->setPostDescription($newDescription);
+if ($service->getStatus() == 1){
+    $service->setStatus(2);
+    $feedback = [
+        "code" => 200,
+        "status" => 2
+    ];
+}
 
-    try {
-        if ($post->changeDescription()) {
-            $feedback = [
-                "code" => 200,
-                "1" => $post->getUserID(),
-                "2" => $_POST['newDescription'],
-                "3" => $post->getPostDescription()
-            ];
-        }
-    } catch (Exception $e) {
+if ($service->getStatus() == 2){
+    $service->setStatus(3);
+    $feedback = [
+        "code" => 200,
+        "status" => 3
+    ];
+}
+
+try {
+    if ($post->changeDescription()) {
         $feedback = [
-            "code" => 500,
-            "message" => $e->getMessage()
+            "code" => 200,
+            "1" => $post->getUserID(),
+            "2" => $_POST['newDescription'],
+            "3" => $post->getPostDescription()
         ];
     }
-
-
-    echo json_encode($feedback);
+} catch (Exception $e) {
+    $feedback = [
+        "code" => 500,
+        "message" => $e->getMessage()
+    ];
 }
+
+
+echo json_encode($feedback);
+

@@ -137,5 +137,6 @@ if ($currentService = $user->getService() && $service->hasCustomers()) {
 
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/checkCustomers.js"></script>
+<script type="text/javascript" src="js/changeStatus.js"></script>
 </body>
 </html>
