@@ -32,7 +32,6 @@ if ($user->isCustomer()){
 
     <!-- JavaScript -->
     <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 </head>
@@ -48,15 +47,46 @@ if ($user->isCustomer()){
 <div class="container-fluid">
 <div class="container bg-overlay">
 
-    <img src="<?php echo $_SESSION['userData']['picture'] ?>" alt="fbAvatar" class="fbAvatar animated bounceInLeft">
-    <h1 class="animated bounceInDown"><?php echo "Hello ". $_SESSION['userData']['first_name'] ?></h1>
-    <h3>Scan uw ticket om uw registratie te voltooien</h3>
+    <h1 class="animated bounceInDown"><?php echo "Hallo ". $_SESSION['userData']['first_name'] ?></h1>
 
-    <!-- <input type="file" accept="image/*" capture="camera"> -->
-    <a href="cashlessconnect.php"><button id="cameraButton" type="button" class="btn btn-default btn-circle btn-xl animated infinite tada"><i class="glyphicon glyphicon-camera"></i></button></a>
+
+    <!-- Modal -->
+    <div class="modal fade" id="popupmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content camera">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Scan uw ticket</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="videoContainer">
+                        <video autoplay="true" id="videoElement"></video>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success btn-secondary" data-dismiss="modal" onclick="redirect()">Bevestig</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </div>
-</div>
+
+
+<script type="text/javascript">
+    $(window).on('load',function(){
+        window.setTimeout(function () {
+            $('#popupmodal').modal('show');
+        },1200)
+    });
+    function redirect(){
+        location.href = "cashlessconnect.php";
+    }
+</script>
+<script type="text/javascript" src="js/script.js"></script>
 
 
 </body>

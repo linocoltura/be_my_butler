@@ -125,15 +125,27 @@ class User
         $statement ->bindValue(":userID", $this->getId());
         $statement->execute();
         if ($statement->rowCount()>0) {
-            return $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $statement->fetch(PDO::FETCH_ASSOC);
         } else return false;
+    }
+
+    public function getUserById($userID){
+
+        // returns user
+
+        $conn = Db::getInstance();
+
+        $statement = $conn->prepare("SELECT * FROM users WHERE id = $userID");
+        $statement ->bindValue(":userID", $userID);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
 
     public function isButler(){
         $conn = Db::getInstance();
 
         $statement = $conn->prepare("SELECT * FROM services WHERE userID = :userID AND completed = FALSE");
-        $statement ->bindValue(":userID", $this->getID());
+        $statement ->bindValue(":userID", $this->getId());
         $statement->execute();
         if ($statement->rowCount()>0){
             return true;
@@ -143,8 +155,8 @@ class User
     public function isCustomer(){
         $conn = Db::getInstance();
 
-        $statement = $conn->prepare("SELECT * FROM userIsCustomer WHERE userID = :userID AND completed = FALSE");
-        $statement ->bindValue(":userID", $this->getID());
+        $statement = $conn->prepare("SELECT * FROM useriscustomer WHERE userID = :userID AND complete = FALSE");
+        $statement ->bindValue(":userID", $this->getId());
         $statement->execute();
         if ($statement->rowCount()>0){
             return true;
@@ -154,12 +166,12 @@ class User
     public function getAsCustomer($serviceID){
         $conn = Db::getInstance();
 
-        $statement = $conn->prepare("SELECT * FROM userIsCustomer WHERE userID = :userID AND serviceID = :serviceID");
-        $statement ->bindValue(":userID", $this->getID());
-        $statement ->bindValue(":userID", $serviceID);
+        $statement = $conn->prepare("SELECT * FROM useriscustomer WHERE userID = :userID AND serviceID = :serviceID");
+        $statement ->bindValue(":userID", $this->getId());
+        $statement ->bindValue(":serviceID", $serviceID);
         $statement->execute();
         if ($statement->rowCount()>0) {
-            return $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $statement->fetch(PDO::FETCH_ASSOC);
         } else return false;
     }
 
@@ -167,6 +179,31 @@ class User
 
     }
 
+    public function getServiceAsCustomer(){
+
+        $conn = Db::getInstance();
+
+        $statement = $conn->prepare("SELECT * FROM useriscustomer WHERE complete = FALSE AND userID = :userID");
+        $statement ->bindValue(":userID", $this->getId());
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getButlerUserIdAsCustomer(){
+
+        $conn = Db::getInstance();
+
+        $statement = $conn->prepare("SELECT * FROM useriscustomer WHERE complete = FALSE AND userID = :userID");
+        $statement ->bindValue(":userID", $this->getId());
+        $statement->execute();
+        $temp = $statement->fetch();
+        $id = $temp['serviceID'];
+        $statement2 = $conn->prepare("SELECT * FROM services WHERE serviceID = :serviceID");
+        $statement2 ->bindValue(":serviceID", $id);
+        $statement2->execute();
+        $temp2 = $statement2->fetch();
+        return $temp2['userID'];
+    }
 
 
 }

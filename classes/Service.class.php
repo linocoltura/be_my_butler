@@ -91,9 +91,7 @@ class Service
      */
     public function setCompleted($completed)
     {
-        if (!is_bool($completed)){
-            throw new Exception('Must be a boolean');
-        }
+
         $this->completed = $completed;
 
         $conn = Db::getInstance();
@@ -139,10 +137,17 @@ class Service
         $statement ->bindValue(":completed", $this->getCompleted());
         return $statement->execute();
     }
+    public function saveCustomer($userID, $drink){
+        $conn = db::getInstance();
+
+        $statement = $conn->prepare("INSERT INTO useriscustomer (userID, serviceID, drink, complete) VALUES (:userID, :serviceID, :drink, false)");
+        $statement ->bindValue(":userID", $userID);
+        $statement ->bindValue(":serviceID", $this->getServiceID());
+        $statement ->bindValue(":drink", $drink);
+        return $statement->execute();
+    }
 
     public function hasCustomers(){
-
-        $conn = db::getInstance();
 
         $conn = Db::getInstance();
 
@@ -154,6 +159,30 @@ class Service
         } else return false;
 
     }
+
+    public function getAvailableConsumptions(){
+
+        $conn = Db::getInstance();
+
+        $statement = $conn->prepare("SELECT * FROM useriscustomer WHERE serviceID = :serviceID");
+        $statement ->bindValue(":serviceID", $this->getServiceID());
+        $statement->execute();
+        $claimed = $statement->rowCount();
+        return $this->amount - $claimed;
+
+    }
+
+    public function getClaimedConsumptions(){
+
+        $conn = Db::getInstance();
+
+        $statement = $conn->prepare("SELECT * FROM useriscustomer WHERE serviceID = :serviceID");
+        $statement ->bindValue(":serviceID", $this->getServiceID());
+        $statement->execute();
+        return $statement->rowCount();
+    }
+
+
 
 
 }

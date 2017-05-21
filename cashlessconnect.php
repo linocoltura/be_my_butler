@@ -4,15 +4,6 @@ include_once("includes/facebooksession.php");
 include_once("classes/User.class.php");
 include_once("classes/Db.class.php");
 
-
-if (!empty($_POST) && isset($_POST['amount'])){
-    $user = new User();
-    $user->setId($_SESSION['userData']['id']);
-    if ($user->setBalance($_POST['amount'])){
-        header("location:mode.php");
-    }
-}
-
 ?>
 
 <!doctype HTML>
@@ -47,22 +38,47 @@ if (!empty($_POST) && isset($_POST['amount'])){
 </header>
 <div class="container-fluid">
     <div class="container bg-overlay">
-        <h3 class="animated bounceInDown">Stel een bedrag in:</h3>
 
-        <form class="form-group" action="" method="post">
-            <label for="amount" class="animated bounceInLeft">KVM Betaalkaart bedraagt:</label>
-            <select class="form-control" id="amount" name="amount">
-                <option value="10">€ 10.00</option>
-                <option value="20">€ 20.00</option>
-                <option value="40">€ 40.00</option>
-                <option value="50">€ 50.00</option>
-            </select>
-            <button id="syncButton" type="submit" class="btn btn-default btn-circle btn-xl animated infinite tada"><i class="glyphicon glyphicon-refresh"></i></button>
-        </form>
+        <h1 class="animated bounceInDown">Betaalkaart</h1>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="popupmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content camera">
+
+                    <div class="modal-header">
+                        <h4 class="modal-title">Scan uw KVM cashless betaalkaart</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="videoContainer">
+                            <video autoplay="true" id="videoElement"></video>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success btn-secondary" data-dismiss="modal" onclick="redirect()">Bevestig</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-
 </div>
+
+
+<script type="text/javascript">
+    $(window).on('load',function(){
+        window.setTimeout(function () {
+            $('#popupmodal').modal('show');
+        },1200)
+    });
+    function redirect(){
+        location.href = "mode.php";
+    }
+</script>
+<script type="text/javascript" src="js/script.js"></script>
 
 
 </body>

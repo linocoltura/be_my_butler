@@ -20,7 +20,7 @@ button:active {
     background-position: center center;
     top: 0;
     left: 0;
-    overflow: auto;
+    overflow-y: auto;
 }
 .container {
     position: absolute;
@@ -28,6 +28,7 @@ button:active {
     height: 100%;
     top: 0;
     left: 0;
+    overflow: hidden;
 }
 #wrapper {
     position: relative;
@@ -111,6 +112,7 @@ h1 {
     text-align: center;
     -webkit-animation-delay: 0.3s;
     animation-delay: 0.3s;
+    font-size:2em;
 }
 h3 {
     margin-top: 5em;
@@ -263,7 +265,6 @@ video#videoElement {
 .modal-content {
     width: 100%;
 }
-<<<<<<< HEAD
 
 p.orderStatus{
   position: absolute;
@@ -288,19 +289,22 @@ span.infoStatus{
   left: 45%;
   transform: translateX(-55%);
 }
-.infoNotice button.btn.btn-success{
-  position: absolute;
-      font-size: 1.4em;
-      top: 83%;
-      left: 50%;
-      transform: translateX(-50%);
-=======
+.infoNotice button.btn.btn-success {
+    position: absolute;
+    font-size: 1.4em;
+    top: 83%;
+    left: 50%;
+    transform: translateX(-50%);
+}
 .modal-content {
     display: inline-block;
->>>>>>> ff843d1c2c33add7b22ab25df08422ed9704e6ae
 }
-div#exampleModalLong {
+#popupmodal {
     position: absolute;
+    width:100%;
+}
+.modal-dialog{
+    margin-top:80px;
 }
 .green {
     color: #2ecc71;
@@ -333,6 +337,8 @@ img.beerSpots {
     animation-fill-mode: forwards;
     -webkit-animation-duration: 2s;
     animation-duration: 2s;
+    width:80px;
+    cursor: pointer;
 }
 img.fbAvatar.animated.bounceInLeft {
     position: absolute;
@@ -377,6 +383,14 @@ i.glyphicon.glyphicon-record{
     position: absolute;
     width: 92%;
 
+}
+
+.service{
+    background-color: white;
+    overflow: hidden;
+    margin:20px 0;
+    border: 1px solid lightgrey;
+    padding-bottom:20px;
 }
 
 /* Transitions */

@@ -3,6 +3,7 @@
 include_once("includes/facebooksession.php");
 include_once("classes/Drink.class.php");
 include_once("classes/User.class.php");
+include_once("classes/Service.class.php");
 
 $user = new User;
 $user->setId($_SESSION['userData']['id']);
@@ -14,9 +15,28 @@ if ($user->isCustomer()){
     header("location:customerpending.php");
 }
 
-
     $drink = new Drink();
     $drinks = $drink->getAllDrinks();
+
+    $service = new Service();
+    $services = $service->getServices();
+
+
+    if (!empty($_POST) && isset($_POST['modalService']) && isset($_POST['userID']) && isset($_POST['drink'])){
+        $userID = $_POST['userID'];
+        $drink = $_POST['drink'];
+        //$serviceID = $_POST['modalService'];
+
+        echo $userID, $drink, $_POST['modalService'];
+
+        $saveService = new Service();
+        $saveService->setServiceID($_POST['modalService']);
+
+        if ($saveService->saveCustomer($userID,$drink)){
+            header('Location: customerpending.php?serviceID='.$_POST['modalService']);
+        }
+
+    }
 
 ?>
 
@@ -36,7 +56,6 @@ if ($user->isCustomer()){
 
     <!-- JavaScript -->
     <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 </head>
@@ -54,30 +73,66 @@ if ($user->isCustomer()){
         <h1>Header</h1>
         </div>
 
-        <div class="orderOverview">
+<!--        <div class="orderOverview">-->
+<!---->
+<!--            <div class="service" id="HIERKOMTID">-->
+<!---->
+<!--                <img class="userAvatar"src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg" alt="Avatar">-->
+<!--                    <p class="userName">Mike Matthews</p>-->
+<!--                        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>-->
+<!--                <div class="inlineBeerSpots">-->
+<!--                    <img src="img/pint.svg" alt="Full Pint" class="beerSpots animated infinite pulse" data-toggle="modal" data-target="#exampleModalLong">-->
+<!--                    <img src="img/pintEmpty.svg" alt="Empty Pint" class="beerSpots">-->
+<!--                    <img src="img/pintEmpty.svg" alt="Empty Pint" class="beerSpots">-->
+<!---->
+<!--                </div>-->
+<!---->
+<!--            </div>-->
+<!---->
+<!--        </div>-->
 
-            <img class="userAvatar"src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg" alt="Avatar">
-                <p class="userName">Mike Matthews</p>
-                    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-            <div class="inlineBeerSpots">
-                <img src="img/pint.svg" alt="Full Pint" class="beerSpots animated infinite pulse" data-toggle="modal" data-target="#exampleModalLong">
-                    <img src="img/pintEmpty.svg" alt="Empty Pint" class="beerSpots">
+
+    <?php if(!empty($services)): ?>
+
+        <?php foreach ($services as $service): ?>
+            <div class="service" id="<?php echo $service['serviceID']?>">
+
+                <?php
+                $serviceUser = new User();
+                $activeServiceUser = $serviceUser->getUserById($service['userID']);
+                $activeService = new Service();
+                $activeService->setServiceID($service['serviceID']);
+                $activeService->setAmount($service['amount']);
+                ?>
+                <img class="userAvatar" src="<?php echo $activeServiceUser['picture'] ?>" alt="Avatar">
+                <p class="userName"><?php echo $activeServiceUser['first_name']?></p>
+                <!--            <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>-->
+                <div class="inlineBeerSpots">
+                    <?php
+                    for ($i = 0; $i < $activeService->getAvailableConsumptions(); $i++):
+                        ?>
+                        <img class="beerSpots animated infinite pulse fullpint" src="img/pint.svg" alt="Full Pint" class="beerSpots animated infinite pulse" data-toggle="modal" data-target="#popupmodal">
+                    <?php endfor; ?>
+
+                    <?php
+                    for ($i = 0; $i < $activeService->getClaimedConsumptions(); $i++):
+                        ?>
                         <img src="img/pintEmpty.svg" alt="Empty Pint" class="beerSpots">
-
-
+                    <?php endfor; ?>
+                </div>
 
 
             </div>
+        <?php endforeach;?>
+    <?php else: ?>
 
+        <p>Geen butlers beschikbaar</p>
 
-
-        </div>
-
-
+    <?php endif; ?>
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal fade" id="popupmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
 
@@ -88,37 +143,35 @@ if ($user->isCustomer()){
                 </div>
                 <div class="modal-body">
 
+                    <form action="" method="post">
+
 
 
                         <div class="form-group" style="margin-top:0;">
-                              <label for="sel1">Drank Menu:</label>
-                              <select class="form-control" id="sel1">
-                                <option>Bier</option>
-                                <option>Cola</option>
-                                <option>Koffie</option>
-                                <option>Water</option>
-                              </select>
-                            </div>
-                            <label for="priceDrinks">€ 2.50</label>
-
+                            <label for="sel1">Drank Menu:</label>
+                            <select name="drink" onchange="changeDrink();" class="form-control" id="sel1">
+                                <?php foreach ($drinks as $drink): ?>
+                                    <option data-price="<?php echo $drink['price'] ?>"<?php echo $drink['name'] ?>"><?php echo $drink['name'] ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <label id="priceDrinks" for="priceDrinks">€ 2.00</label>
+                        <input id="modalServiceID" type="hidden" value="test" name="modalService">
+                        <input type="hidden" value="<?php echo $_SESSION['userData']['id'] ?>" name="userID">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-success btn-secondary" data-dismiss="modal">Bevestig</button>
+                    <button type="submit" class="btn btn-success btn-secondary">Bevestig</button>
                 </div>
+
+                    </form>
             </div>
         </div>
     </div>
 
-
-
-    <div class="test">
-        <?php foreach ($drinks as $drink): ?>
-            <p><?php echo $drink['name'] ?></p>
-        <?php endforeach; ?>
-    </div>
-
 </div>
+
+<span id="beerActive" style="display: none;"></span>
 
 <script type="text/javascript" src="js/script.js"></script>
 

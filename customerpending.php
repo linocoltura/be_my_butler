@@ -9,9 +9,10 @@ $user->setId($_SESSION['userData']['id']);
 if ($user->isButler()){
     header("location:butlerdeliver.php");
 }
-if ($user->isCustomer()){
-    header("location:customerpending.php");
-}
+
+$myService = $user->getService();
+$tempId = $user->getButlerUserIdAsCustomer();
+$myButler = $user->getUserById($tempId);
 
 
 ?>
@@ -52,10 +53,18 @@ if ($user->isCustomer()){
 
           <div class="orderOverview">
 
-              <img class="userAvatar"src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/128.jpg" alt="Avatar" style="width:50px;">
-                  <p class="userName">Mike Matthews</p>
-                      <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                        <label for="butlerStatus" style="    margin-top: 6%;margin-left: 40%;">Butler is onderweg</label>
+              <img class="userAvatar"src="<?php echo $myButler['picture'] ?>" alt="butler" style="width:50px;">
+                  <p class="userName"><?php echo $myButler['first_name'] ?></p>
+<!--                      <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>-->
+                        <p id="butlerStatus">
+                            <?php
+                                if ($myService['status'] == 1){
+                                    echo 'neemt bestellingen op';
+                                }elseif($myService['status'] == 2){
+                                    echo'is aan de bar';
+                                }else echo'is onderweg';
+                            ?>
+                        </p>
                       <div class="trackNtrace" style="margin-top: 13%;margin-left: 12%;margin-right: 12%;">
 
                         <button type="button" class="btn btn-danger btn-circle" ><i class="glyphicon glyphicon-record" ></i></button>
@@ -68,10 +77,10 @@ if ($user->isCustomer()){
 
 
               </div>
-              <div class="chat">
-                <textarea class="form-control" id="exampleTextarea" rows="3" style="margin-top:78%;"></textarea>
-                <button type="button" class="btn btn-success" style="width: 80px;margin-top: -29%;margin-left:75%;">Verstuur</button>
-              </div>
+<!--              <div class="chat">-->
+<!--                <textarea class="form-control" id="exampleTextarea" rows="3" style="margin-top:78%;"></textarea>-->
+<!--                <button type="button" class="btn btn-success" style="width: 80px;margin-top: -29%;margin-left:75%;">Verstuur</button>-->
+<!--              </div>-->
 
 
           </div>
