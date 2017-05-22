@@ -41,7 +41,6 @@ button:active {
     position: relative;
     height: 40px;
     top: 45%;
-    left: 5%;
     text-align: center;
 }
 a.#facebooklink {
@@ -96,11 +95,9 @@ span.glyphicon.glyphicon-menu-left {
     animation-delay: .5s;
 }
 div#facebookbutton {
-    position: absolute;
     display: inline-block;
     pointer-events: none;
     margin: 0 auto;
-    margin-left: -30px;
     -webkit-animation: fadeIn 2s;
     /* Safari 4+ */
     /* Fx 5+ */
