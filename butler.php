@@ -30,24 +30,9 @@ if (!empty($_POST) && isset($_POST['amount'])){
 
 <!doctype HTML>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/screen.css">
-    <link rel="stylesheet" href="css/animate.css" />
+  <?php include 'includes/header.php' ?>
 
-    <!-- JavaScript -->
-    <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
-</head>
 <body>
 <header>
     <nav class="nav navbar-default">
@@ -62,7 +47,8 @@ if (!empty($_POST) && isset($_POST['amount'])){
   <div class="container bg-overlay">
     <div class="header">
 
-      <h1>Header</h1>
+      <h1 class="headerTitle">Butler: <?php echo($_SESSION['userData']['first_name']); ?></h1>
+      <img src="img/ButlerMode.png" alt="butler-header" class="header-img">
     </div>
 
       <div class="tutorial-video">
@@ -70,7 +56,7 @@ if (!empty($_POST) && isset($_POST['amount'])){
           </video>
         </div>
     <div class="butlerOverview">
-      <form class="form-group" action="" method="post">
+      <form class="form-group" action="" method="post" style="text-align:center;">
           <label for="amount">Ik kan nog ...</label>
           <select class="form-control" id="amount" name="amount">
               <option value="1">1</option>
@@ -80,14 +66,21 @@ if (!empty($_POST) && isset($_POST['amount'])){
               <option value="5">5</option>
               <option value="6">6</option>
           </select>
-          <label for="amount">consumptie(s) meedragen</label>
-          <button type="submit" class="btn btn-secondary btn-lg">Bevestig</button>
+          <label for="amount">consumptie(s) meedragen</label><br>
+          <button type="submit" class="btn btn-danger btn-lg">Bevestig</button>
       </form>
     </div>
           <div class="loyalOverview">
-            <span class="glyphicon glyphicon-bell" aria-hidden="true"></span><h5>Aantal Bedieningen</h5>
-            <span class="Overview glyphicon glyphicon-heart" aria-hidden="true"></span><h5>Aantal Favorites</h5>
-            <span class="glyphicon glyphicon-gift" aria-hidden="true"></span></span><h5>Loyaliteits Punten</h5>
+            <div class=".col-xs-12" style="height:20px;">
+              <span class="glyphicon glyphicon-bell" aria-hidden="true" style="margin-left: 5%;margin-right: 5%;line-height:1.1em;"></span><h5 style="padding-top: 2%;">Aantal Bedieningen: <?php echo "Placeholder"; ?></h5>
+            </div>
+            <div class=".col-xs-12" style="height:20px;">
+              <span class="Overview glyphicon glyphicon-heart" aria-hidden="true" style="margin-left: 5%;margin-right: 5%;line-height:1.1em;"></span><h5 style="padding-top: 2%;">Aantal Favorites: <?php echo "Placeholder"; ?></h5>
+            </div>
+            <div class=".col-xs-12" style="height:20px;">
+              <span class="glyphicon glyphicon-gift" aria-hidden="true" style="margin-left: 5%;margin-right: 5%;line-height:1.1em;"></span></span><h5 style="padding-top: 2%;">Loyaliteits Punten: <?php echo "Placeholder"; ?></h5>
+            </div>
+
           </div>
 
 

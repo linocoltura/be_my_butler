@@ -58,7 +58,7 @@ include_once("classes/Db.class.php");
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success btn-secondary" data-dismiss="modal" onclick="redirect()">Bevestig</button>
+                        <button type="button" class="btn btn-danger btn-secondary" data-dismiss="modal" onclick="redirect()">Bevestig</button>
                     </div>
                 </div>
             </div>
