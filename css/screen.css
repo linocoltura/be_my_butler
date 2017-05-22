@@ -301,8 +301,10 @@ span.infoStatus{
   text-align: center;
   color: grey;
   font-style: oblique;
-  top: 89%;
-  left: 45%;
+  /*top: 89%;*/
+  top:91%;
+  left: 51%;
+  /*left: 45%;*/
   transform: translateX(-55%);
 }
 .infoNotice button.btn.btn-success {
@@ -311,6 +313,22 @@ span.infoStatus{
     top: 83%;
     left: 50%;
     transform: translateX(-50%);
+    background-color: #D64842;
+    border-color: #D64842;
+    border-radius: 20px;
+    width: 50%;
+}
+p.p-emptystate{
+  margin: 0 0 10px;
+padding-top: 20%;
+text-align: center;
+}
+img.svg-emptystate{
+  height: 50px;
+position: absolute;
+left: 45%;
+top: 40%;
+transform: translateX(-50%);
 }
 .modal-content {
     display: inline-block;
@@ -425,6 +443,13 @@ position: absolute;
 top: 0;
 margin-top: 5%;
 margin-left: 65%;
+}
+img.header-svg{
+  height: 85px;
+position: absolute;
+top: 10px;
+margin-top: 5%;
+margin-left: 75%;
 }
 
 h1.headerTitle{

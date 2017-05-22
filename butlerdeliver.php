@@ -52,7 +52,8 @@ $customers = $service->getCustomers();
 
     <div class="header">
 
-    <h1>Header</h1>
+    <h1 class="headerTitle"style="text-align: center; padding-left:0;">Overzicht</h1>
+    <img src="img/butlermidheader.svg" alt="Butler Waiting" class="header-svg">
     </div>
 
     <?php if ($service->hasCustomers()): ?>
@@ -77,7 +78,8 @@ $customers = $service->getCustomers();
     <?php endforeach; ?>
 
     <?php else: ?>
-        <p>Nog geen bestellingen</p>
+        <p class="p-emptystate">Nog geen bestellingen</p>
+        <img src="img/EmptyStatePullDown.svg" alt="Empty State Bell" class="svg-emptystate animated infinite bounce">
     <?php endif; ?>
 
     <!-- Modal -->
