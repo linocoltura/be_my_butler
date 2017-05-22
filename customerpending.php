@@ -31,13 +31,14 @@ $myButler = $user->getUserById($tempId);
       <div class="container bg-overlay">
           <div class="header">
 
-          <h1>Header</h1>
+            <h1 class="headerTitle"style="text-align: left; padding-left:10%;">Uw bestelling:</h1>
+            <img src="img/running.svg" alt="Butler Running" class="header-svg" style="height: 80px; margin-left: 70%;">
           </div>
 
           <div class="orderOverview">
 
               <img class="userAvatar"src="<?php echo $myButler['picture'] ?>" alt="butler" style="width:50px;">
-                  <p class="userName"><?php echo $myButler['first_name'] ?></p>
+                  <p class="userName">Uw butler: <?php echo $myButler['first_name'] ?></p>
 <!--                      <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>-->
                         <p id="butlerStatus">
                             <?php
@@ -48,9 +49,9 @@ $myButler = $user->getUserById($tempId);
                                 }else echo'is onderweg';
                             ?>
                         </p>
-                      <div class="trackNtrace" style="margin-top: 13%;margin-left: 12%;margin-right: 12%;">
+                      <div class="trackNtrace" style="margin-top: 35%;margin-left: 15%;margin-right: 15%;">
 
-                        <button type="button" class="btn btn-danger btn-circle" ><i class="glyphicon glyphicon-record" ></i></button>
+                        <button type="button" class="btn btn-secondary btn-circle" style="background-color:#D64842;" ><i class="glyphicon glyphicon-record" ></i></button>
 
                         <button type="button" class="btn btn-secondary btn-circle" style="margin-left: 33%;"><i class="glyphicon glyphicon-record" ></i></button>
 

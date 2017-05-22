@@ -212,7 +212,7 @@ div.orderOverview {
     width: auto;
     background-color: white;
     margin-top: 5%;
-    border: 1px solid lightgrey;
+    border: 1px solid #D64842;
 }
 img.userAvatar {
     border-radius: 50%;
@@ -285,10 +285,16 @@ video#videoElement {
 p.orderStatus{
   position: absolute;
   top: 30%;
-  left: 35%;
+  left: 42%;
   font-weight: bold;
   font-size: 1.3em;
   color: green;
+}
+p#butlerStatus{
+position: absolute;
+top: 30%;
+left: 53%;
+transform: translateX(-50%);
 }
 img.qr-red{
 position: absolute;
@@ -371,7 +377,7 @@ img.beerSpots {
     animation-fill-mode: forwards;
     -webkit-animation-duration: 2s;
     animation-duration: 2s;
-    width:80px;
+    width:55px;
     cursor: pointer;
 }
 img.fbAvatar.animated.bounceInLeft {
@@ -433,7 +439,7 @@ i.glyphicon.glyphicon-record{
     background-color: white;
     overflow: hidden;
     margin:20px 0;
-    border: 1px solid lightgrey;
+    border: 1px solid #D64842;
     padding-bottom:20px;
 }
 

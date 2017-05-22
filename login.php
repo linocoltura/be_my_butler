@@ -139,7 +139,7 @@ if(isset($accessToken)){
 
     <div class="container bg-overlay">
 
-  <img src="img/SplashLogo.svg" alt="Splash_Logo" id="SplashLogo" class="img-responsive">
+  <img src="img/logo.svg" alt="Splash_Logo" id="SplashLogo" class="img-responsive">
   <img src="img/SplashLogoKV.svg" alt="Splash_KV_Logo" id="SplashKV" class="img-responsive">
 <div id="wrapper">
     <a id="facebooklink" href="<?php echo htmlspecialchars($loginURL) ?>">

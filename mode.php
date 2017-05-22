@@ -30,7 +30,7 @@ if ($user->isCustomer()){
 <div class="container-fluid">
 
   <div class="container bg-overlay">
-<h3 class="animated bounceInDown">Ga verder als...</h3>
+<h2 class="animated bounceInDown" style="text-align:center; padding-top:15%;">Ga verder als...</h3>
 
 <div class="row">
 

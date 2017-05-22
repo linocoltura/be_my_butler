@@ -53,7 +53,7 @@ $customers = $service->getCustomers();
     <div class="header">
 
     <h1 class="headerTitle"style="text-align: center; padding-left:0;">Overzicht</h1>
-    <img src="img/butlermidheader.svg" alt="Butler Waiting" class="header-svg">
+    <img src="img/Mode_Butler.svg" alt="Butler Waiting" class="header-svg" style="margin-left:68%;">
     </div>
 
     <?php if ($service->hasCustomers()): ?>
@@ -99,7 +99,7 @@ $customers = $service->getCustomers();
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success btn-secondary" data-dismiss="modal">Bevestig</button>
+                    <button type="button" class="btn btn-danger btn-secondary" data-dismiss="modal">Bevestig</button>
                 </div>
             </div>
         </div>

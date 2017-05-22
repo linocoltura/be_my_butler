@@ -53,8 +53,8 @@ if ($user->isCustomer()){
 <div class="container-fluid">
     <div class="container bg-overlay">
         <div class="header">
-
-        <h1>Header</h1>
+          <h1 class="headerTitle"style="text-align: center; padding-left:0;">Butlers:</h1>
+          <img src="img/butlermidheader.svg" alt="Butler Waiting" class="header-svg">
         </div>
 
 <!--        <div class="orderOverview">-->
@@ -110,8 +110,8 @@ if ($user->isCustomer()){
         <?php endforeach;?>
     <?php else: ?>
 
-        <p>Geen butlers beschikbaar</p>
-
+        <p class="p-emptystate">Geen butlers beschikbaar</p>
+<img src="img/EmptyStatePullDown.svg" alt="Empty State Bell" class="svg-emptystate animated infinite bounce">
     <?php endif; ?>
     </div>
 
@@ -144,8 +144,8 @@ if ($user->isCustomer()){
                         <input type="hidden" value="<?php echo $_SESSION['userData']['id'] ?>" name="userID">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-success btn-secondary">Bevestig</button>
+                    <button type="button" style="background-color: white;color: #D64842;"class="btn btn-danger btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger btn-secondary">Bevestig</button>
                 </div>
 
                     </form>
