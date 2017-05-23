@@ -51,7 +51,9 @@ $totalServices = $user->getAmountOfSservices();
 
   <div class="container bg-overlay">
     <div class="header">
-
+      <a href="mode.php"><button type="button" class="btn btn-danger btn-lg" style="    background-color: white;color: #D64842;width: 50px;margin: 0 auto;position: absolute;top: 46px;left: 30px;border-radius: 0%;">
+    <span class="glyphicon glyphicon-menu-left" style="font-size:1.2em;" aria-hidden="true"></span>
+    </button></a>
       <h1 class="headerTitle">Butler: <?php echo($_SESSION['userData']['first_name']); ?></h1>
       <img src="img/ButlerMode.png" alt="butler-header" class="header-img">
     </div>
