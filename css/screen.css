@@ -604,3 +604,15 @@ h4.modal-title {
         position: relative;
     }
 }
+
+@media only screen and (min-width: 600px) {
+  .container-fluid {
+      position: relative;
+      height: 667px;
+      width: 375px;
+      overflow: hidden;
+      margin-top: 40px;
+      top: 0;
+  }
+
+}
