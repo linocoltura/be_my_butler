@@ -55,6 +55,9 @@ if ($user->isCustomer()){
         <div class="header">
           <h1 class="headerTitle"style="text-align: center; padding-left:0;">Butlers</h1>
           <img src="img/butlermidheader.svg" alt="Butler Waiting" class="header-svg">
+          <a href="mode.php"><button type="button" class="btn btn-danger btn-lg" style="    background-color: white;color: #D64842;width: 50px;margin: 0 auto;position: absolute;top: 46px;left: 30px;border-radius: 0%;">
+  <span class="glyphicon glyphicon-menu-left" style="font-size:1.2em;" aria-hidden="true"></span>
+</button></a>
         </div>
 
 <!--        <div class="orderOverview">-->
