@@ -132,7 +132,7 @@ class User
 
         $conn = Db::getInstance();
 
-        $statement = $conn->prepare("SELECT * FROM users WHERE id = $userID");
+        $statement = $conn->prepare("SELECT * FROM users WHERE id = :userID");
         $statement ->bindValue(":userID", $userID);
         $statement->execute();
         return $statement->fetch(PDO::FETCH_ASSOC);

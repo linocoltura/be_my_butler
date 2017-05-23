@@ -66,6 +66,17 @@ $('.fullpint').on('click', function () {
     $('#modalServiceID').val(serviceID);
 });
 
+$('#main_body').on('click', '.fullpint', function () {
+    var serviceID = $(this).parent().parent().prop("id");
+    $('#modalServiceID').val(serviceID);
+});
+
+function updateServiceID() {
+    var serviceID = $(this).parent().parent().prop("id");
+    console.log($(this))
+    $('#modalServiceID').val(serviceID);
+}
+
 
 function changeDrink() {
     var changePrice = $('#sel1').find(':selected').attr('data-price')

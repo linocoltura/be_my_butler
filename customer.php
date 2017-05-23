@@ -28,8 +28,6 @@ if ($user->isCustomer()){
         $drink = $_POST['drink'];
         //$serviceID = $_POST['modalService'];
 
-        echo $userID, $drink, $_POST['modalService'];
-
         $saveService = new Service();
         $saveService->setServiceID($_POST['modalService']);
 
@@ -37,6 +35,7 @@ if ($user->isCustomer()){
             //header('Location: customerpending.php?serviceID='.$_POST['modalService']);
             header('Location: customerpending.php');
         }
+        var_dump($userID, $drink, $_POST['modalService']);
 
     }
 
@@ -45,7 +44,7 @@ if ($user->isCustomer()){
 <!doctype HTML>
 <html>
 <?php include 'includes/header.php' ?>
-<body>
+<body id="main_body">
 <header>
     <nav class="nav navbar-default">
 
@@ -97,7 +96,7 @@ if ($user->isCustomer()){
                     <?php
                     for ($i = 0; $i < $activeService->getAvailableConsumptions(); $i++):
                         ?>
-                        <img class="beerSpots animated infinite pulse fullpint" src="img/pint.svg" alt="Full Pint" data-toggle="modal" data-target="#popupmodal">
+                        <img class="beerSpots animated infinite pulse fullpint activeBeer" src="img/pint.svg" alt="Full Pint" data-toggle="modal" data-target="#popupmodal" onclick="updateServiceID()">
                     <?php endfor; ?>
 
                     <?php
@@ -129,9 +128,10 @@ if ($user->isCustomer()){
                     <h4 class="modal-title">Plaats uw bestelling:</h4>
                       <span class="glyphicon glyphicon-time"></span>
                 </div>
+                <form action="" method="post">
                 <div class="modal-body">
 
-                    <form action="" method="post">
+
 
 
 

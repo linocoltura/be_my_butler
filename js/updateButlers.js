@@ -20,7 +20,6 @@ setInterval(function(){
             }
             if(response.code == 200){
 
-                console.log(response.services);
 
                 //$("#services").html("");
 
@@ -42,7 +41,7 @@ setInterval(function(){
                     var beer = "";
                     for (i = 0; i < amount; i++) {
 
-                        beer += "<img class='beerSpots animated infinite pulse fullpint' src='img/pint.svg' alt='Full Pint' data-toggle='modal' data-target='#popupmodal'>"
+                        beer += "<img class='beerSpots animated infinite pulse fullpint activeBeer' src='img/pint.svg' alt='Full Pint' data-toggle='modal' data-target='#popupmodal' onclick='updateServiceID()'>"
 
                     }
 

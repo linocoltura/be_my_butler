@@ -109,7 +109,7 @@ class Service
 
         $conn = Db::getInstance();
 
-        $statement = $conn->prepare("SELECT * FROM services WHERE completed = FALSE");
+        $statement = $conn->prepare("SELECT * FROM services WHERE completed = FALSE AND status == 1");
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -149,6 +149,16 @@ class Service
         $statement ->bindValue(":completed", $this->getCompleted());
         return $statement->execute();
     }
+
+    public function updateService(){
+        $conn = db::getInstance();
+
+        $statement = $conn->prepare("UPDATE services SET status = :status WHERE serviceID = :id;");
+        $statement ->bindValue(":status", $this->getStatus());
+        $statement ->bindValue(":id", $this->getServiceID());
+        return $statement->execute();
+    }
+
     public function saveCustomer($userID, $drink){
         $conn = db::getInstance();
 

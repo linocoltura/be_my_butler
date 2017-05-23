@@ -18,6 +18,7 @@ foreach ($services as $service){
     $services[$i]['butlerName'] = $activeServiceUser['first_name'];
     $services[$i]['butlerPicture'] = $activeServiceUser['picture'];
 
+    $i++;
 }
 
 $feedback = [

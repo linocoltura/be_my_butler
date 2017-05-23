@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 
-setInterval(function(){
+$('#statusButton').click(function () {
 
     $.ajax({
         method: "POST",
@@ -16,15 +16,21 @@ setInterval(function(){
                 alert('an error occurred')
 
             }
-            if(response.code == 200){
 
-                if(response.status == 1){
-
-                }
+            if(response.status == 2){
+                $('#statusButton').html('Op terugweg');
+                $('.infoStatus').fadeOut();
             }
+
+
+            if(response.status == 3){
+                $('#statusButton').fadeOut();
+                $('.infoStatus').fadeOut();
+            }
+
         });
 
-}, 3000);
+})
 
 
 });

@@ -215,6 +215,18 @@ padding: 3%;
     width:22px;
     margin-right:3px;
 }
+.drinkOrder{
+    position: absolute;
+    bottom:10px;
+    top:44%;
+    left:28%;
+    font-weight:600;
+    color: #747474;
+}
+.drinkOrder img{
+    width:22px;
+    margin-right:3px;
+}
 
 div.orderOverview {
     height: 150px;
@@ -298,7 +310,6 @@ p.orderStatus{
     left: 28%;
   font-weight: bold;
   font-size: 1em;
-  color: #35913c;
 }
 p#butlerStatus{
     position: absolute;
