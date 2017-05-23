@@ -15,9 +15,10 @@ if (!$user->isCustomer()){
     header("location:mode.php");
 }
 
-$myService = $user->getService();
+$myService = $user->getServiceAsCustomer();
 $tempId = $user->getButlerUserIdAsCustomer();
 $myButler = $user->getUserById($tempId);
+
 
 
 ?>
@@ -40,10 +41,10 @@ $myButler = $user->getUserById($tempId);
             <img src="img/running.svg" alt="Butler Running" class="header-svg" style="height: 80px; margin-left: 70%;">
           </div>
 
-          <div class="orderOverview">
+          <div class="pending">
 
-              <img class="userAvatar"src="<?php echo $myButler['picture'] ?>" alt="butler">
-                  <p class="userName">Uw butler: <?php echo $myButler['first_name'] ?></p>
+              <img class="userAvatar2"src="<?php echo $myButler['picture'] ?>" alt="butler">
+                  <p class="userName2">Uw butler: <?php echo $myButler['first_name'] ?></p>
 <!--                      <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>-->
                         <p id="butlerStatus">
                             <?php
@@ -54,15 +55,15 @@ $myButler = $user->getUserById($tempId);
                                 }else echo'is onderweg';
                             ?>
                         </p>
-                      <div class="trackNtrace" style="margin-top: 35%;margin-left: 15%;margin-right: 15%;">
-
-                        <button type="button" class="btn btn-secondary btn-circle" style="background-color:#D64842;" ><i class="glyphicon glyphicon-record" ></i></button>
-
-                        <button type="button" class="btn btn-secondary btn-circle" style="margin-left: 33%;"><i class="glyphicon glyphicon-record" ></i></button>
-
-                        <button type="button" class="btn btn-secondary btn-circle" style="margin-left: 33%;"><i class="glyphicon glyphicon-record"></i></button>
-
-                      </div>
+<!--                      <div class="trackNtrace" style="margin-top: 35%;margin-left: 15%;margin-right: 15%;">-->
+<!---->
+<!--                        <button type="button" class="btn btn-secondary btn-circle" style="background-color:#D64842;" ><i class="glyphicon glyphicon-record" ></i></button>-->
+<!---->
+<!--                        <button type="button" class="btn btn-secondary btn-circle" style="margin-left: 33%;"><i class="glyphicon glyphicon-record" ></i></button>-->
+<!---->
+<!--                        <button type="button" class="btn btn-secondary btn-circle" style="margin-left: 33%;"><i class="glyphicon glyphicon-record"></i></button>-->
+<!---->
+<!--                      </div>-->
 
 
               </div>
@@ -71,12 +72,14 @@ $myButler = $user->getUserById($tempId);
 <!--                <button type="button" class="btn btn-success" style="width: 80px;margin-top: -29%;margin-left:75%;">Verstuur</button>-->
 <!--              </div>-->
 
+          <img src="img/qrcode.jpg" alt="" id="confirm">
 
           </div>
 
 
       </div>
 
+  <script type="text/javascript" src="js/getStatus.js"></script>
 
 </body>
 </html>

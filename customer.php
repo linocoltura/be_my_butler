@@ -35,7 +35,6 @@ if ($user->isCustomer()){
             //header('Location: customerpending.php?serviceID='.$_POST['modalService']);
             header('Location: customerpending.php');
         }
-        var_dump($userID, $drink, $_POST['modalService']);
 
     }
 

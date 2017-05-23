@@ -109,7 +109,7 @@ class Service
 
         $conn = Db::getInstance();
 
-        $statement = $conn->prepare("SELECT * FROM services WHERE completed = FALSE AND status == 1");
+        $statement = $conn->prepare("SELECT * FROM services WHERE completed = FALSE AND status = 1");
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }

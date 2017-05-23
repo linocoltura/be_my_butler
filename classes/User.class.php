@@ -183,7 +183,11 @@ class User
         $statement = $conn->prepare("SELECT * FROM useriscustomer WHERE complete = FALSE AND userID = :userID");
         $statement ->bindValue(":userID", $this->getId());
         $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        $ascu = $statement->fetch(PDO::FETCH_ASSOC);
+        $statement2 = $conn->prepare("SELECT * FROM services WHERE serviceID = :serviceID");
+        $statement2 ->bindValue(":serviceID", $ascu['serviceID']);
+        $statement2->execute();
+        return $statement2->fetch(PDO::FETCH_ASSOC);
     }
 
     public function getButlerUserIdAsCustomer(){

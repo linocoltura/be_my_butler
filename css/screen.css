@@ -23,7 +23,8 @@ button:active {
     background-position: center center;
     top: 0;
     left: 0;
-    overflow: auto;
+    overflow: hidden;
+    overflow-y: auto;
 }
 .container {
     position: absolute;
@@ -31,7 +32,8 @@ button:active {
     height: 100%;
     top: 0;
     left: 0;
-    overflow: auto;
+    overflow: hidden;
+    overflow-y: auto;
 }
 .btn-danger{
     border-radius: 25px;
@@ -236,6 +238,54 @@ div.orderOverview {
     border: 1px solid #e09082;
     position: relative;
 }
+
+div.customerOverview {
+    height: 150px;
+    width: auto;
+    background-color: white;
+    margin-top: 5%;
+    border: 1px solid #e09082;
+    position: relative;
+}
+
+img.userAvatar2 {
+    border-radius: 50%;
+    width: 65px;
+    position: absolute;
+    top: 12%;
+    left: 4%;
+}
+p.userName2 {
+    position: absolute;
+    top: 20%;
+    left: 28%;
+    font-weight: 600;
+    font-size: 1.4em;
+}
+
+div.pending {
+    width: auto;
+    background-color: white;
+    margin-top: 5%;
+    border: 1px solid #e09082;
+    position: relative;
+    height:100px;
+
+}
+
+#confirm{
+    width:100%;
+    display: block;
+    margin:auto;
+
+    background-color: white;
+    margin-top: 40px;
+    border: 1px solid #e09082;
+    position: relative;
+    padding:15px;
+    max-width:220px;
+opacity: 0}
+
 img.userAvatar {
     border-radius: 50%;
     width: 65px;
@@ -313,7 +363,7 @@ p.orderStatus{
 }
 p#butlerStatus{
     position: absolute;
-    top: 32%;
+    top:48%;
     left: 28%;
     font-weight: bold;
     font-size: 1em;
