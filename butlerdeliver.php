@@ -73,6 +73,8 @@ $customers = $service->getCustomers();
 
         <img src="img/qr_red.svg" class="qr-red qr" alt="QR Code Not Ready" data-toggle="modal" data-target="#popupmodal">
 
+        <div class="location"><img src="img/location.svg" alt="location">tribune 1 plaats 7</div>
+
     </div>
 
     <?php endforeach; ?>

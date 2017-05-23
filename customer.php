@@ -53,7 +53,7 @@ if ($user->isCustomer()){
 <div class="container-fluid">
     <div class="container bg-overlay">
         <div class="header">
-          <h1 class="headerTitle"style="text-align: center; padding-left:0;">Butlers:</h1>
+          <h1 class="headerTitle"style="text-align: center; padding-left:0;">Butlers</h1>
           <img src="img/butlermidheader.svg" alt="Butler Waiting" class="header-svg">
         </div>
 
@@ -132,7 +132,7 @@ if ($user->isCustomer()){
 
 
                         <div class="form-group" style="margin-top:0;">
-                            <label for="sel1">Drank Menu:</label>
+                            <label for="sel1">Drank:</label>
                             <select name="drink" onchange="changeDrink();" class="form-control" id="sel1">
                                 <?php foreach ($drinks as $drink): ?>
                                     <option data-price="<?php echo $drink['price'] ?>"<?php echo $drink['name'] ?>"><?php echo $drink['name'] ?></option>
@@ -158,6 +158,7 @@ if ($user->isCustomer()){
 <span id="beerActive" style="display: none;"></span>
 
 <script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/updateAvailable.js"></script>
 
 </body>
 </html>

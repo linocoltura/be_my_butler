@@ -10,6 +10,10 @@ if ($user->isButler()){
     header("location:butlerdeliver.php");
 }
 
+if (!$user->isCustomer()){
+    header("location:mode.php");
+}
+
 $myService = $user->getService();
 $tempId = $user->getButlerUserIdAsCustomer();
 $myButler = $user->getUserById($tempId);

@@ -7,6 +7,8 @@ include_once("classes/Service.class.php");
 $user = new User;
 $user->setId($_SESSION['userData']['id']);
 
+$userData = $user->getUserById($user->getId());
+
 if ($user->isButler()){
     header("location:butlerdeliver.php");
 }
@@ -25,6 +27,8 @@ if (!empty($_POST) && isset($_POST['amount'])){
         header("location:butlerdeliver.php");
     }
 }
+
+$totalServices = $user->getAmountOfSservices();
 
 ?>
 
@@ -72,13 +76,13 @@ if (!empty($_POST) && isset($_POST['amount'])){
     </div>
           <div class="loyalOverview">
             <div class=".col-xs-12" style="height:20px;">
-              <span class="glyphicon glyphicon-bell" aria-hidden="true" style="margin-left: 5%;margin-right: 5%;line-height:1.1em;"></span><h5 style="padding-top: 2%;">Aantal Bedieningen: <?php echo "Placeholder"; ?></h5>
+              <span class="glyphicon glyphicon-bell" aria-hidden="true" style="margin-left: 5%;margin-right: 5%;line-height:1.1em;"></span><h5 style="padding-top: 2%;">Aantal Bedieningen: <?php echo $totalServices ?></h5>
             </div>
             <div class=".col-xs-12" style="height:20px;">
-              <span class="Overview glyphicon glyphicon-heart" aria-hidden="true" style="margin-left: 5%;margin-right: 5%;line-height:1.1em;"></span><h5 style="padding-top: 2%;">Aantal Favorites: <?php echo "Placeholder"; ?></h5>
+              <span class="Overview glyphicon glyphicon-heart" aria-hidden="true" style="margin-left: 5%;margin-right: 5%;line-height:1.1em;"></span><h5 style="padding-top: 2%;">Aantal Favorites: <?php echo $userData['loyalty'] ?></h5>
             </div>
             <div class=".col-xs-12" style="height:20px;">
-              <span class="glyphicon glyphicon-gift" aria-hidden="true" style="margin-left: 5%;margin-right: 5%;line-height:1.1em;"></span></span><h5 style="padding-top: 2%;">Loyaliteits Punten: <?php echo "Placeholder"; ?></h5>
+              <span class="glyphicon glyphicon-gift" aria-hidden="true" style="margin-left: 5%;margin-right: 5%;line-height:1.1em;"></span></span><h5 style="padding-top: 2%;">Loyaliteits Punten: <?php echo $userData['loyalty'] ?></h5>
             </div>
 
           </div>

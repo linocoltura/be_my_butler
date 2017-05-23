@@ -70,6 +70,8 @@ if ($user->isCustomer()){
         location.href = "cashlessconnect.php";
     }
 </script>
+
+<script type="text/javascript" src="lib/html5-qrcode.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 
 

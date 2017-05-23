@@ -205,5 +205,15 @@ class User
         return $temp2['userID'];
     }
 
+    public function getAmountOfSservices(){
+
+        $conn = Db::getInstance();
+
+        $statement = $conn->prepare("SELECT * FROM services WHERE userID = :userID");
+        $statement ->bindValue(":userID", $this->getId());
+        $statement->execute();
+        return $statement->rowCount();
+
+    }
 
 }

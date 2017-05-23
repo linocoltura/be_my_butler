@@ -64,17 +64,17 @@ span.glyphicon.glyphicon-menu-left {
     left: 13%;
     display: block;
     width: 75%;
-    opacity: 0;
-    -webkit-animation: fadeOut 5s;
+    opacity: 1;
+    -webkit-animation: fadeOut 1.5s;
     /* Safari 4+ */
     /* Fx 5+ */
     /* Opera 12+ */
-    animation: fadeOut 5s;
+    animation: fadeOut 1.5s;
     /* IE 10+, Fx 29+ */
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
-    -webkit-animation-delay: .5s;
-    animation-delay: .5s;
+    -webkit-animation-delay: 2.5s;
+    animation-delay: 2.5s;
 }
 #SplashKV {
     position: absolute;
@@ -82,32 +82,32 @@ span.glyphicon.glyphicon-menu-left {
     left: 45%;
     display: block;
     width: 15%;
-    opacity: 0;
-    -webkit-animation: fadeOut 5s;
+    opacity: 1;
+    -webkit-animation: fadeOut 1.5s;
     /* Safari 4+ */
     /* Fx 5+ */
     /* Opera 12+ */
-    animation: fadeOut 5s;
+    animation: fadeOut 1.5s;
     /* IE 10+, Fx 29+ */
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
-    -webkit-animation-delay: .5s;
-    animation-delay: .5s;
+    -webkit-animation-delay: 2.5s;
+    animation-delay: 2.5s;
 }
 div#facebookbutton {
     display: inline-block;
     pointer-events: none;
     margin: 0 auto;
-    -webkit-animation: fadeIn 2s;
+    -webkit-animation: fadeIn 1.5s;
     /* Safari 4+ */
     /* Fx 5+ */
     /* Opera 12+ */
-    animation: fadeIn 2s;
+    animation: fadeIn 1.5s;
     /* IE 10+, Fx 29+ */
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
-    -webkit-animation-delay: 5s;
-    animation-delay: 5s;
+    -webkit-animation-delay: 3.7s;
+    animation-delay: 3.7s;
     opacity: 0;
 }
 #facebooklink {
@@ -204,39 +204,52 @@ padding: 3%;
 
 }
 
+.location{
+    position: absolute;
+    bottom:10px;
+    left:3%;
+    font-weight:600;
+    color: #747474;
+}
+.location img{
+    width:22px;
+    margin-right:3px;
+}
+
 div.orderOverview {
-    height: 25%;
+    height: 150px;
     width: auto;
     background-color: white;
     margin-top: 5%;
-    border: 1px solid #D64842;
+    border: 1px solid #e09082;
+    position: relative;
 }
 img.userAvatar {
     border-radius: 50%;
     width: 80px;
     position: absolute;
-    top: 25%;
-    left: 10%;
+    top: 9%;
+    left: 4%;
 }
 p.userName {
     position: absolute;
-    top: 25%;
-    left: 42%;
-    font-weight: 300;
-    font-size: 1.3em;
+    top: 15%;
+    left: 33%;
+    font-weight: 600;
+    font-size: 1.4em;
 }
-p.orderStatus {
-    position: absolute;
-    top: 30%;
-    left: 35%;
-    font-weight: bold;
-    font-size: 1.3em;
-    color: green;
-}
+/*p.orderStatus {*/
+    /*position: absolute;*/
+    /*top: 30%;*/
+    /*left: 35%;*/
+    /*font-weight: bold;*/
+    /*font-size: 1.3em;*/
+    /*color: green;*/
+/*}*/
 img.qr-red {
     position: absolute;
     width: 75px;
-    top: 25%;
+    top: 23%;
     left: 70%;
 }
 span.infoStatus {
@@ -281,10 +294,10 @@ video#videoElement {
 
 p.orderStatus{
   position: absolute;
-  top: 30%;
-  left: 42%;
+  top: 32%;
+    left: 33%;
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1em;
   color: green;
 }
 p#butlerStatus{
@@ -366,7 +379,7 @@ video#videoElement {
     min-height: 100%;
 }
 img.beerSpots {
-    width: 55px;
+    width: 50px;
 }
 .inlineBeerSpots img {
     float: left;
@@ -376,13 +389,15 @@ img.beerSpots {
     animation-duration: 2s;
     width:55px;
     cursor: pointer;
+    margin-right:10px;
+
 }
 img.fbAvatar.animated.bounceInLeft {
     position: absolute;
     top: 2%;
 }
 .inlineBeerSpots {
-    margin-left: 36%;
+    margin-left: 33%;
     margin-top: 20%;
 }
 span.Overview.glyphicon.glyphicon-heart{
@@ -436,8 +451,9 @@ i.glyphicon.glyphicon-record{
     background-color: white;
     overflow: hidden;
     margin:20px 0;
-    border: 1px solid #D64842;
+    border: 1px solid #e09082;
     padding-bottom:20px;
+    position: relative;
 }
 
 img.header-img{
@@ -462,7 +478,7 @@ padding-left: 20%;
 color: #ecf0f1;
 }
 
-a:link {
+a {
     text-decoration: none;
     color: #D64842;
 
@@ -474,7 +490,7 @@ h4.modal-title {
 
 @-webkit-keyframes fadeOut {
     0% {
-        opacity: 0;
+        opacity: 1;
     }
     25% {
         opacity: 1;
@@ -488,7 +504,7 @@ h4.modal-title {
 }
 @keyframes fadeOut {
     0% {
-        opacity: 0;
+        opacity: 1;
     }
     25% {
         opacity: 1;

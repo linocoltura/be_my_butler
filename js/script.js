@@ -1,19 +1,52 @@
-var video = document.querySelector("#videoElement");
-if (video != null) {
-    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
-}
+// var video = document.querySelector("#videoElement");
+// //if (video != null) {
+//     navigator.getUserMedia = navigator.getUserMedia || navigator.media || navigator.mediaDevices.getUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
+// //}
+// if (navigator.getUserMedia) {
+//     navigator.getUserMedia({video: true}, handleVideo, videoError);
+// }
+//
+//
+// function handleVideo(stream) {
+//         video.src = window.URL.createObjectURL(stream);
+//
+// }
+//
+// function videoError(e) {
+//     //
+// }
+
+
+
+navigator.getUserMedia = ( navigator.getUserMedia       ||
+navigator.webkitGetUserMedia ||
+navigator.mozGetUserMedia    ||
+navigator.msGetUserMedia );
+
 if (navigator.getUserMedia) {
-    navigator.getUserMedia({video: true}, handleVideo, videoError);
+    navigator.getUserMedia(
+        // constraints
+        {
+            video: true
+        },
+        // successCallback
+        function (localMediaStream) {
+            var video = document.querySelector('#videoElement');
+            video.src = window.URL.createObjectURL(localMediaStream);
+            // Do something with the video
+            video.play();
+        },
+        // errorCallback
+        function (err) {
+            console.log("The following error occured: " + err);
+        }
+    );
+} else {
+    alert("getUserMedia not supported by your web browser or Operating system version");
 }
 
-function handleVideo(stream) {
-        video.src = window.URL.createObjectURL(stream);
 
-}
 
-function videoError(e) {
-    // do something
-}
 
 
 $('.qr').click(function () {

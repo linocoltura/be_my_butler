@@ -126,6 +126,18 @@ class Service
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getAmountFromDb(){
+
+        // returns all customers for this service
+
+        $conn = Db::getInstance();
+
+        $statement = $conn->prepare("SELECT * FROM services WHERE serviceID = :serviceID");
+        $statement ->bindValue(":serviceID", $this->getServiceID());
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
+
 
     public function saveService(){
         $conn = db::getInstance();
