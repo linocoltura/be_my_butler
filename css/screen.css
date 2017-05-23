@@ -53,11 +53,13 @@ span.glyphicon.glyphicon-menu-left {
     font-size: 2em;
 }
 .container-fluid {
-    position: relative;
-    height: 667px;
-    width: 375px;
+    /*position: relative;*/
+    /*height: 667px;*/
+    height: 100%;
+    width: 100%;
+    /*width: 375px;*/
     overflow: hidden;
-    margin-top: 40px;
+    /*margin-top: 40px;*/
     top: 0;
 }
 #SplashLogo {
