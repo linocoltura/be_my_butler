@@ -35,7 +35,7 @@ $customers = $service->getCustomers();
   <?php include 'includes/header.php' ?>
 
 </head>
-<body>
+<body id="main_body">
 <header>
     <nav class="nav navbar-default">
         <div class="container">
@@ -71,7 +71,7 @@ $customers = $service->getCustomers();
 
         <img class="userAvatar"src="<?php echo $currentUser['picture']?>" alt="Avatar">
         <p class="userName"><?php echo $currentUser['first_name']?></p>
-        <p class="orderStatus <?php echo ($customer['complete']) ? 'green' : 'orange';?>"><?php echo ($userIsCustomerData['complete'] == true) ? 'Voltooid' : 'Actief';?></p>
+        <p class="orderStatus <?php echo ($customer['complete']) ? 'green' : 'orange';?>"><?php echo ($customer['complete'] == true) ? 'Voltooid' : 'Actief';?></p>
         <div class="drinkOrder">
             <img src="img/drinkIcon.svg" alt="">
             <?php echo $customer['drink']?>
@@ -109,13 +109,12 @@ $customers = $service->getCustomers();
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger btn-secondary" data-dismiss="modal">Bevestig</button>
+                    <button id="confirmOrder" type="button" class="btn btn-danger btn-secondary" data-dismiss="modal">Bevestig</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <span id="clickedOrder" style="display: none;"></span>
 
     <div class="infoNotice">
         <button id="statusButton" type="button" class="btn btn-success" name="button">Aan de bar</button>
@@ -123,9 +122,11 @@ $customers = $service->getCustomers();
     </div>
   </div>
 </div>
+<span id="clickedOrder" style="display: none;"></span>
 
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/updateCustomers.js"></script>
 <script type="text/javascript" src="js/changeStatus.js"></script>
+<script type="text/javascript" src="js/confirmOrder.js"></script>
 </body>
 </html>

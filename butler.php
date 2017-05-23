@@ -26,6 +26,8 @@ if (!empty($_POST) && isset($_POST['amount'])){
 
     if ($service->saveService()){
         header("location:butlerdeliver.php");
+    } else {
+        //var_dump($service);
     }
 }
 

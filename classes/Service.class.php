@@ -94,11 +94,29 @@ class Service
 
         $this->completed = $completed;
 
-        $conn = Db::getInstance();
+//        $conn = Db::getInstance();
+//
+//        $statement = $conn->prepare("UPDATE services SET completed = :completed WHERE id = :id AND completed = false;");
+//        $statement ->bindValue(":completed", $completed);
+//        $statement ->bindValue(":id", $this->getUserID());
+//
+//        return $statement->execute();
+    }
 
-        $statement = $conn->prepare("UPDATE services SET completed = :completed WHERE id = :id AND completed = false;");
-        $statement ->bindValue(":completed", $completed);
-        $statement ->bindValue(":id", $this->getUserID());
+    public function updateCompleted($userID)
+    {
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("UPDATE useriscustomer SET complete = TRUE WHERE userID = :userID AND complete = FALSE");
+        $statement ->bindValue(":userID", $userID);
+
+        return $statement->execute();
+    }
+
+    public function updateFinal()
+    {
+        $conn = Db::getInstance();
+        $statement = $conn->prepare("UPDATE services SET completed = TRUE WHERE serviceID = :serviceID");
+        $statement ->bindValue(":serviceID", $this->getServiceID());
 
         return $statement->execute();
     }
@@ -173,7 +191,7 @@ class Service
 
         $conn = Db::getInstance();
 
-        $statement = $conn->prepare("SELECT * FROM useriscustomer WHERE serviceID = :serviceID");
+        $statement = $conn->prepare("SELECT * FROM useriscustomer WHERE serviceID = :serviceID WHERE complete = FALSE");
         $statement ->bindValue(":serviceID", $this->getServiceID());
         $statement->execute();
         if ($statement->rowCount()>0) {

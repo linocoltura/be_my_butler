@@ -56,6 +56,11 @@ $('.qr').click(function () {
     $('#clickedOrder').html(userIsCustomerId);
 });
 
+$('#main_body').on('click', '.qr-red', function () {
+    var userIsCustomerId = $(this).parent().prop("id");
+    $('#clickedOrder').html(userIsCustomerId);
+});
+
 $('.activeBeer').click(function () {
     var userIsCustomerId = $(this).parent().parent().prop("id");
     $('#beerActive').html(userIsCustomerId);

@@ -11,6 +11,11 @@ $(document).ready(function(){
         })
             .done(function (response) {
 
+                if(response.final == true){
+                    $(location).attr('href', 'mode.php');
+                    console.log('final');
+                }
+
                 if(response.status == 1){
                     $('#butlerStatus').html('neemt bestellingen op');
                 }

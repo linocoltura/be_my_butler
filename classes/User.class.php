@@ -190,6 +190,18 @@ class User
         return $statement2->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function isFinal(){
+
+        $conn = Db::getInstance();
+
+        $statement = $conn->prepare("SELECT * FROM useriscustomer WHERE userID = :userID AND complete = FALSE");
+        $statement ->bindValue(":userID", $this->getId());
+        $statement->execute();
+        if ($statement->rowCount()==0) {
+            return true;
+        } else return false;
+    }
+
     public function getButlerUserIdAsCustomer(){
 
         $conn = Db::getInstance();

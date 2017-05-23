@@ -451,6 +451,7 @@ img.beerSpots {
     -webkit-animation-duration: 2s;
     animation-duration: 2s;
     width:55px;
+    margin-bottom:5px;
     cursor: pointer;
     margin-right:10px;
 
