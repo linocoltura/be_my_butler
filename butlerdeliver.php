@@ -3,6 +3,7 @@
 include_once("includes/facebooksession.php");
 include_once("classes/User.class.php");
 include_once("classes/Service.class.php");
+include_once("classes/Db.class.php");
 
 $user = new User;
 $service = new Service;
@@ -115,10 +116,6 @@ $customers = $service->getCustomers();
     </div>
   </div>
 </div>
-
-
-
-
 
 
 <script type="text/javascript" src="js/script.js"></script>

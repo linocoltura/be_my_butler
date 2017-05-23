@@ -1,6 +1,7 @@
 <?php
 
 include_once("includes/facebooksession.php");
+include_once("classes/Db.class.php");
 
 ?>
 

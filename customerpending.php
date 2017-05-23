@@ -2,6 +2,7 @@
 
 include_once("includes/facebooksession.php");
 include_once("classes/User.class.php");
+include_once("classes/Db.class.php");
 
 $user = new User;
 $user->setId($_SESSION['userData']['id']);
@@ -41,7 +42,7 @@ $myButler = $user->getUserById($tempId);
 
           <div class="orderOverview">
 
-              <img class="userAvatar"src="<?php echo $myButler['picture'] ?>" alt="butler" style="width:50px;">
+              <img class="userAvatar"src="<?php echo $myButler['picture'] ?>" alt="butler">
                   <p class="userName">Uw butler: <?php echo $myButler['first_name'] ?></p>
 <!--                      <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>-->
                         <p id="butlerStatus">

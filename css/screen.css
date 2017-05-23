@@ -23,7 +23,7 @@ button:active {
     background-position: center center;
     top: 0;
     left: 0;
-    overflow-y: auto;
+    overflow: auto;
 }
 .container {
     position: absolute;
@@ -31,7 +31,7 @@ button:active {
     height: 100%;
     top: 0;
     left: 0;
-    overflow: hidden;
+    overflow: auto;
 }
 .btn-danger{
     border-radius: 25px;
@@ -226,7 +226,7 @@ div.orderOverview {
 }
 img.userAvatar {
     border-radius: 50%;
-    width: 80px;
+    width: 65px;
     position: absolute;
     top: 9%;
     left: 4%;
@@ -234,7 +234,7 @@ img.userAvatar {
 p.userName {
     position: absolute;
     top: 15%;
-    left: 33%;
+    left: 28%;
     font-weight: 600;
     font-size: 1.4em;
 }
@@ -295,16 +295,18 @@ video#videoElement {
 p.orderStatus{
   position: absolute;
   top: 32%;
-    left: 33%;
+    left: 28%;
   font-weight: bold;
   font-size: 1em;
-  color: green;
+  color: #35913c;
 }
 p#butlerStatus{
-position: absolute;
-top: 30%;
-left: 53%;
-transform: translateX(-50%);
+    position: absolute;
+    top: 32%;
+    left: 28%;
+    font-weight: bold;
+    font-size: 1em;
+    color: #35913c;
 }
 img.qr-red{
 position: absolute;

@@ -3,6 +3,7 @@
 include_once("includes/facebooksession.php");
 include_once("classes/User.class.php");
 include_once("classes/Service.class.php");
+include_once("classes/Db.class.php");
 
 $user = new User;
 $user->setId($_SESSION['userData']['id']);

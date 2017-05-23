@@ -17,35 +17,37 @@
 // }
 
 
+var video = document.querySelector("#videoElement");
+if (video != null) {
 
-navigator.getUserMedia = ( navigator.getUserMedia       ||
-navigator.webkitGetUserMedia ||
-navigator.mozGetUserMedia    ||
-navigator.msGetUserMedia );
+    navigator.getUserMedia = ( navigator.getUserMedia ||
+    navigator.webkitGetUserMedia ||
+    navigator.mozGetUserMedia ||
+    navigator.msGetUserMedia );
 
-if (navigator.getUserMedia) {
-    navigator.getUserMedia(
-        // constraints
-        {
-            video: true
-        },
-        // successCallback
-        function (localMediaStream) {
-            var video = document.querySelector('#videoElement');
-            video.src = window.URL.createObjectURL(localMediaStream);
-            // Do something with the video
-            video.play();
-        },
-        // errorCallback
-        function (err) {
-            console.log("The following error occured: " + err);
-        }
-    );
-} else {
-    alert("getUserMedia not supported by your web browser or Operating system version");
+    if (navigator.getUserMedia) {
+        navigator.getUserMedia(
+            // constraints
+            {
+                video: true
+            },
+            // successCallback
+            function (localMediaStream) {
+                var video = document.querySelector('#videoElement');
+                video.src = window.URL.createObjectURL(localMediaStream);
+                // Do something with the video
+                video.play();
+            },
+            // errorCallback
+            function (err) {
+                console.log("The following error occured: " + err);
+            }
+        );
+    } else {
+        alert("getUserMedia not supported by your web browser or Operating system version");
+    }
+
 }
-
-
 
 
 

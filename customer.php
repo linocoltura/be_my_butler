@@ -4,6 +4,7 @@ include_once("includes/facebooksession.php");
 include_once("classes/Drink.class.php");
 include_once("classes/User.class.php");
 include_once("classes/Service.class.php");
+include_once("classes/Db.class.php");
 
 $user = new User;
 $user->setId($_SESSION['userData']['id']);
@@ -33,7 +34,8 @@ if ($user->isCustomer()){
         $saveService->setServiceID($_POST['modalService']);
 
         if ($saveService->saveCustomer($userID,$drink)){
-            header('Location: customerpending.php?serviceID='.$_POST['modalService']);
+            //header('Location: customerpending.php?serviceID='.$_POST['modalService']);
+            header('Location: customerpending.php');
         }
 
     }
@@ -75,7 +77,7 @@ if ($user->isCustomer()){
 <!---->
 <!--        </div>-->
 
-
+<div id="services">
     <?php if(!empty($services)): ?>
 
         <?php foreach ($services as $service): ?>
@@ -95,7 +97,7 @@ if ($user->isCustomer()){
                     <?php
                     for ($i = 0; $i < $activeService->getAvailableConsumptions(); $i++):
                         ?>
-                        <img class="beerSpots animated infinite pulse fullpint" src="img/pint.svg" alt="Full Pint" class="beerSpots animated infinite pulse" data-toggle="modal" data-target="#popupmodal">
+                        <img class="beerSpots animated infinite pulse fullpint" src="img/pint.svg" alt="Full Pint" data-toggle="modal" data-target="#popupmodal">
                     <?php endfor; ?>
 
                     <?php
@@ -108,13 +110,15 @@ if ($user->isCustomer()){
 
             </div>
         <?php endforeach;?>
+</div>
     <?php else: ?>
-
-        <p class="p-emptystate">Geen butlers beschikbaar</p>
-<img src="img/EmptyStatePullDown.svg" alt="Empty State Bell" class="svg-emptystate animated infinite bounce">
+    </div>
+        <div id="emptyState">
+            <p class="p-emptystate">Geen butlers beschikbaar</p>
+            <img src="img/EmptyStatePullDown.svg" alt="Empty State Bell" class="svg-emptystate animated infinite bounce">
+        </div>
     <?php endif; ?>
     </div>
-
     <!-- Modal -->
     <div class="modal fade" id="popupmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -159,6 +163,7 @@ if ($user->isCustomer()){
 
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/updateAvailable.js"></script>
+<script type="text/javascript" src="js/updateButlers.js"></script>
 
 </body>
 </html>

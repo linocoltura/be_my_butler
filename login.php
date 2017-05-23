@@ -7,6 +7,7 @@
 // Include FB config file && User class
 require_once 'fbConfig.php';
 require_once 'classes/User.class.php';
+include_once("classes/Db.class.php");
 
 if(isset($accessToken)){
 

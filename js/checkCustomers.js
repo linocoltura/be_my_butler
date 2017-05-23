@@ -5,7 +5,7 @@ setInterval(function(){
 
     $.ajax({
         method: "POST",
-        url: "ajax/checkCustomer.php",
+        url: "ajax/checkCustomers.php",
         data: {
 
         }

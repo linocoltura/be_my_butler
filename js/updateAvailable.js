@@ -26,9 +26,9 @@ setInterval(function(){
             if(response.code == 200){
 
                 for (i = 0; i < response.services.length; i++) {
-                    serviceID = response.services[i].serviceid;
-                    available = response.services[i].available;
-                    claimed = response.services[i].claimed;
+                    var serviceID = response.services[i].serviceid;
+                    var available = response.services[i].available;
+                    var claimed = response.services[i].claimed;
 
 
                     var ava = available;
@@ -57,7 +57,7 @@ setInterval(function(){
 
         });
 
-}, 1000);
+}, 2000);
 
 
 });
